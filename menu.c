@@ -25,8 +25,8 @@ void tela(){
     }
     gotoxy(01, 01);
     printf("+-----------------------------------------------------------------------------+");
-    gotoxy(25, 02);
-    printf("SISTEMA DE FOLHA DE CADASTRO");
+    gotoxy(18, 02);
+    printf("SISTEMA DE FOLHA DE CONTROLE BANCARIO");
     gotoxy(01, 05);
     printf("+-----------------------------------------------------------------------------+");
     gotoxy(01, 23);
@@ -47,7 +47,7 @@ void tela(){
 void cadastrar(){
     int opc=0;
     do{
-        gotoxy(30,03);
+        gotoxy(27,03);
         printf("CADASTRO DE CONTAS");
         gotoxy(25,10);
         printf("1-Incluir Conta");
@@ -67,7 +67,7 @@ void cadastrar(){
 void Movimentacao(){
     int opc=0;
     do{
-        gotoxy(27,03);
+        gotoxy(24,03);
         printf("MOVIMENTACAO FINANCEIRA");
         gotoxy(25,10);
         printf("1-Registrar Entrada");
@@ -87,7 +87,7 @@ int main(){
     int opc=0;
     do{
         tela();
-        gotoxy(32, 03);
+        gotoxy(28, 03);
         printf("MENU PRINCIPAL");
         gotoxy(25,12);
         printf("1-Cadastro de Contas");
