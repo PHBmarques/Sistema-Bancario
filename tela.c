@@ -1,6 +1,3 @@
-/*Autor:Pedro Henrique Bernardo Marques
-  Data:23/10/2024
-  obje:Sistema bancario*/
 #include<stdio.h>
 #include<stdlib.h>
 #include<windows.h>
