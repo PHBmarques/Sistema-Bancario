@@ -38,12 +38,12 @@ void tela()
     printf("UNICV");
     gotoxy(60, 02);
     printf("Estrutura de dados");
-    gotoxy(66, 03);
-    printf("Aluno:Pedro");
-    gotoxy(66, 04);
-    printf("Aluno:Gustavo");
+    gotoxy(65, 03);
+    printf("Pedro");
+    gotoxy(65, 04);
+    printf("Gustavo");
     gotoxy(02, 24);
-    printf("MSG: ");
+    printf("MSG:  ");
 }
 void cadastrar()
 {
@@ -52,18 +52,26 @@ void cadastrar()
     {
         gotoxy(27, 03);
         printf("CADASTRO DE CONTAS");
+        gotoxy(25, 6);
+        printf("1 - Cadastro Contas Bancaria no Final");
+        gotoxy(25, 8);
+        printf("2 - Cadastro Contas Bancaria no Inicio");
         gotoxy(25, 10);
-        printf("1-Incluir Conta");
+        printf("3 - Cadastro Contas Bancaria no Posicao");
         gotoxy(25, 12);
-        printf("2-Alterar Conta");
+        printf("4 - Remover Contas Bancaria no Final");
         gotoxy(25, 14);
-        printf("3-Consultar Conta");
+        printf("5 - Remover Contas Bancaria no Inicio");
         gotoxy(25, 16);
-        printf("4-Remover Conta");
+        printf("6 - Remover Contas Bancaria no Posicao");
         gotoxy(25, 18);
-        printf("5-Voltar");
+        printf("7 - Alteracao de conta bancario");
+        gotoxy(25, 20);
+        printf("8 - Consultar Contas Bancaria");
+        gotoxy(25, 22);
+        printf("9 - Retornar no Menu Princial");
         gotoxy(07, 24);
-        printf("Digite a opcao:");
+        printf("Digite a opcao:  ");
         scanf("%d", &opc);
     } while (opc != 5);
 }
@@ -74,16 +82,16 @@ void Movimentacao()
     {
         gotoxy(24, 03);
         printf("MOVIMENTACAO FINANCEIRA");
-        gotoxy(25, 10);
+        gotoxy(30, 10);
         printf("1-Registrar Entrada");
-        gotoxy(25, 12);
+        gotoxy(30, 12);
         printf("2-Registrar Saida");
-        gotoxy(25, 14);
+        gotoxy(30, 14);
         printf("3-Consultar Movimentacao");
-        gotoxy(25, 16);
+        gotoxy(30, 16);
         printf("4-Voltar");
         gotoxy(7, 24);
-        printf("Digite a opcao:");
+        printf("Digite a opcao: ");
         scanf("%d", &opc);
     } while (opc != 4);
 }
@@ -96,11 +104,11 @@ int main()
         tela();
         gotoxy(28, 03);
         printf("MENU PRINCIPAL");
-        gotoxy(25, 12);
+        gotoxy(30, 10);
         printf("1-Cadastro de Contas");
-        gotoxy(25, 14);
+        gotoxy(30, 12);
         printf("2-Movimentacao Financeira");
-        gotoxy(25, 16);
+        gotoxy(30, 14);
         printf("3-Sair");
         gotoxy(07, 24);
         printf("Digite a opcao:");
