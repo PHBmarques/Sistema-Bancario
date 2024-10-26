@@ -7,44 +7,82 @@
 #include <conio.h>
 #include <locale.h>
 #include "funcoes.c"
-void gotoxy(int x, int y)
+#include "tela.c"
+/*Autor:Pedro
+  criado a funcao de cadastrar as informacoes no final*/
+void cadastrofinal(tipolista *l)
 {
-    COORD coord;
-    coord.X = (short)x;
-    coord.Y = (short)y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-}
-void tela()
-{
-    int lin;
-    system("cls");
-    for (lin = 1; lin < 26; lin++)
+    int opc;
+    int resp;
+    infocontas ContaBancaria;
+    tipoapontador p;
+    tipoapontador aux;
+    do
     {
-        gotoxy(01, lin);
-        printf("|");
-        gotoxy(79, lin);
-        printf("|");
-    }
-    gotoxy(01, 01);
-    printf("+-----------------------------------------------------------------------------+");
-    gotoxy(18, 02);
-    printf("SISTEMA DE FOLHA DE CONTROLE BANCARIO");
-    gotoxy(01, 05);
-    printf("+-----------------------------------------------------------------------------+");
-    gotoxy(01, 23);
-    printf("+-----------------------------------------------------------------------------+");
-    gotoxy(01, 25);
-    printf("+-----------------------------------------------------------------------------+");
-    gotoxy(04, 02);
-    printf("UNICV");
-    gotoxy(60, 02);
-    printf("Estrutura de dados");
-    gotoxy(65, 03);
-    printf("Pedro");
-    gotoxy(65, 04);
-    printf("Gustavo");
-    gotoxy(02, 24);
-    printf("MSG:  ");
+        do
+        {
+            tela();
+            telacadastro();
+            gotoxy(50, 7);
+            scanf("%d", &ContaBancaria.codigo_conta);
+            aux = pesquisa(l, ContaBancaria.codigo_conta);
+            if (aux == NULL)
+            {
+                gotoxy(7, 24);
+                printf("Codigo ja cadastrado");
+                getch();
+            }
+        } while (aux != NULL);
+            gotoxy(50,9);
+            fflush(stdin);
+            fgets(ContaBancaria.banco,50,stdin);
+            gotoxy(50,11);
+            fflush(stdin);
+            fgets(ContaBancaria.agencia,10,stdin);
+            gotoxy(50,13);
+            fflush(stdin);
+            fgets(ContaBancaria.numero_conta,20,stdin);
+            gotoxy(50,15);
+            fflush(stdin);
+            fgets(ContaBancaria.tipo_conta,20,stdin);
+            gotoxy(50,17);
+            scanf("%lf",&ContaBancaria.vl_saldo);
+            gotoxy(50,19);
+            scanf("%lf",&ContaBancaria.vl_limite);
+            gotoxy(50,21);
+            fflush(stdin);
+            fgets(ContaBancaria.status,10,stdin);
+            gotoxy(7,24);
+            //Ira perfuntar se o usuario deseja salvar esses dados ou não
+            printf("Deseja Salvar os dados(1-SIM/2-NAO):");
+            scanf("%d",&opc);
+            //Se ele quiser salvar ele ira salvar os dados no final
+            if(resp==1){
+                p=(tipoapontador)malloc(sizeof(tipoitem));
+                if(p !=NULL){
+            p ->proximo = NULL;
+
+            p ->conteudo = ContaBancaria;
+            if (l->primeiro ==NULL){
+                l->primeiro = p;
+                l->ultimo = p;
+                
+            }else{
+                l->ultimo ->proximo = p;
+                l-> ultimo = p;
+            }
+            gotoxy(7,24);
+            printf("Cadastro com Sucesso!");
+            gotoxy(7, 24);
+            printf("Pressione uma tecla para continuar");
+            getch();
+            }
+            }
+            //caso ele não queira cadastrar uma nova Conta ira voltar para a tela de inicio
+        gotoxy(7, 24);
+        printf("Deseja cadastrar um novo funcionario (1 = sim / 2 = nao)? ");
+        scanf("%d",&resp);
+    } while (resp != 2);
 }
 void cadastrar(tipolista *l)
 {
@@ -74,6 +112,12 @@ void cadastrar(tipolista *l)
         gotoxy(07, 24);
         printf("Digite a opcao:  ");
         scanf("%d", &opc);
+        switch (opc)
+        {
+        case 1:
+            cadastrofinal(l);
+            break;
+        }
     } while (opc != 9);
 }
 void Movimentacao()
@@ -100,9 +144,9 @@ int main()
 {
     system("color 1F");
     int opc = 0;
-    tipolista L;
-    L.primeiro=NULL;
-    L.ultimo=NULL;
+    tipolista l;
+    l.primeiro = NULL;
+    l.ultimo = NULL;
     do
     {
         tela();
@@ -120,7 +164,7 @@ int main()
         switch (opc)
         {
         case 1:
-            cadastrar(&L);
+            cadastrar(&l);
             break;
         case 2:
             Movimentacao();
