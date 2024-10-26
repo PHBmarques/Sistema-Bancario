@@ -39,9 +39,9 @@ void tela()
     gotoxy(60, 02);
     printf("Estrutura de dados");
     gotoxy(66, 03);
-    printf("Aluno.Pedro");
+    printf("Aluno:Pedro");
     gotoxy(66, 04);
-    printf("Aluno.Gustavo");
+    printf("Aluno:Gustavo");
     gotoxy(02, 24);
     printf("MSG: ");
 }
