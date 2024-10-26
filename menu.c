@@ -6,6 +6,7 @@
 #include <windows.h>
 #include <conio.h>
 #include <locale.h>
+#include "funcoes.c"
 void gotoxy(int x, int y)
 {
     COORD coord;
@@ -45,7 +46,7 @@ void tela()
     gotoxy(02, 24);
     printf("MSG:  ");
 }
-void cadastrar()
+void cadastrar(tipolista *l)
 {
     int opc = 0;
     do
@@ -73,7 +74,7 @@ void cadastrar()
         gotoxy(07, 24);
         printf("Digite a opcao:  ");
         scanf("%d", &opc);
-    } while (opc != 5);
+    } while (opc != 9);
 }
 void Movimentacao()
 {
@@ -99,6 +100,9 @@ int main()
 {
     system("color 1F");
     int opc = 0;
+    tipolista L;
+    L.primeiro=NULL;
+    L.ultimo=NULL;
     do
     {
         tela();
@@ -116,7 +120,7 @@ int main()
         switch (opc)
         {
         case 1:
-            cadastrar();
+            cadastrar(&L);
             break;
         case 2:
             Movimentacao();
