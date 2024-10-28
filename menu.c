@@ -253,6 +253,28 @@ int main()
         case 2:
             Movimentacao();
             break;
+        case 3:
+            cadastrar(&l);
+            break;
+        case 4:
+            cadastrar(&l);
+            break;
+        case 5:
+            cadastrar(&L);
+            break;
+        case 6:
+            cadastrar(&L);
+            break;
+        case 7:
+            cadastrar(&L);
+            break;
+        case 8:
+            cadastrar(&L);
+            break;
+        case 9:
+            cadastrar(&L);
+            break;
         }
+
     } while (opc != 3);
 }
