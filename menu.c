@@ -201,6 +201,24 @@ void cadastrar(tipolista *l)
         case 2:
             cadastrarinicio(l);
             break;
+        case 3:
+            cadastrar(l);
+            break;
+        case 4:
+            cadastrar(l);
+            break;
+        case 5:
+            cadastrar(l);
+            break;
+        case 6:
+            cadastrar(l);
+            break;
+        case 7:
+            cadastrar(l);
+            break;
+        case 8:
+            cadastrar(l);
+            break;
         }
     } while (opc != 9);
 }
@@ -252,27 +270,6 @@ int main()
             break;
         case 2:
             Movimentacao();
-            break;
-        case 3:
-            cadastrar(&l);
-            break;
-        case 4:
-            cadastrar(&l);
-            break;
-        case 5:
-            cadastrar(&L);
-            break;
-        case 6:
-            cadastrar(&L);
-            break;
-        case 7:
-            cadastrar(&L);
-            break;
-        case 8:
-            cadastrar(&L);
-            break;
-        case 9:
-            cadastrar(&L);
             break;
         }
 
