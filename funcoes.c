@@ -37,3 +37,19 @@ tipoapontador pesquisa(tipolista *L, int cod){
      }
      return NULL;
 }
+/*
+Autor: Gustavo
+Função que conta quantos elementos tem na lista de cadastros
+*/
+int contador(tipolista *l)
+{
+    tipoapontador aux;
+    int cont = 0;
+    aux = l->primeiro;
+    while (aux != NULL)
+    {
+        cont++;
+        aux = aux->proximo;
+    }
+    return cont;
+}
