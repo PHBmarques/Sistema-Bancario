@@ -1,6 +1,6 @@
 /*
 Autor: Pedro Henrique Bernardo Marques
- RData: 04/11/2024
+Data: 04/11/2024
 Equipe:A: 173342-2024
         RA: 179427-2024
 Obj: Cadastrar os dados no incio

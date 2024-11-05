@@ -1,6 +1,10 @@
-/*Autor:Pedro Henrique Bernardo Marques
-  Data26/10/24*/
-
+/*
+Autor: Pedro Henrique Bernardo Marques
+Data: 04/11/2024
+Equipe: RA: 173342-2024
+        RA: 179427-2024
+Obj: funcoes utilizadas no programa
+*/
 #ifndef funcoes_h
 #define funcoes_h
 
@@ -23,12 +27,9 @@ typedef struct{
     tipoapontador  primeiro;
     tipoapontador ultimo;
 }tipolista;
-//metodo criado para verificar se esse codigo já existe
+
 tipoapontador pesquisa(tipolista *L, int cod);
-/*
-Autor: Gustavo
-Função que conta quantos elementos tem na lista de cadastros
-*/
+
 void Movimentacao();
 
 void cadastrar(tipolista *l);

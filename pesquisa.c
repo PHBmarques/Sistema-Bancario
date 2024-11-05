@@ -1,3 +1,10 @@
+/*
+Autor: Pedro Henrique Bernardo Marques
+Data: 04/11/2024
+Equipe: RA: 173342-2024
+        RA: 179427-2024
+Obj: Funcao que ira permitir o código percorrer a lista 
+*/
 #include "funcoes.h"
 #include<stdio.h>
 #include<stdlib.h>

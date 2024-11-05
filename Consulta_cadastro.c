@@ -1,7 +1,7 @@
 /*
 Autor: Gustavo de Lima Sossai
- RData: 04/11/2024
-Equipe:A: 173342-2024
+Data: 04/11/2024
+Equipe: RA: 173342-2024
         RA: 179427-2024
 Obj:Consulta os dados que ja foram cadastrados
 */

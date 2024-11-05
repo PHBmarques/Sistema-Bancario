@@ -3,7 +3,7 @@ Autor: Gustavo de Lima Sossai
 Data: 04/11/2024
 Equipe: RA: 173342-2024
         RA: 179427-2024
-Obj: Criar um contador que auxilia o codigo escrevito
+Obj: Criar um contador que auxilia o codigo escrevido
 */
 
 #include "funcoes.h"

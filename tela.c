@@ -1,9 +1,10 @@
 /*
-
-
-
+Autor: Pedro Henrique Bernardo Marques
+Data: 04/11/2024
+Equipe: RA: 173342-2024
+        RA: 179427-2024
+Obj: tela principal e tela para inserir as infromacoes do cadastro
 */
-
 #include "funcoes.h"
 #include <stdlib.h>
 #include <stdio.h>
