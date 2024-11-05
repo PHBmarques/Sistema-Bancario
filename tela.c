@@ -1,15 +1,12 @@
-#include <stdio.h>
+/*
+
+
+
+*/
+
+#include "funcoes.h"
 #include <stdlib.h>
-#include <windows.h>
-#include <conio.h>
-#include <locale.h>
-void gotoxy(int x, int y)
-{
-    COORD coord;
-    coord.X = (short)x;
-    coord.Y = (short)y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-}
+#include <stdio.h>
 void tela()
 {
     int lin;

@@ -1,11 +1,9 @@
 /*Autor:Pedro Henrique Bernardo Marques
   Data26/10/24*/
- 
-#include <stdio.h>
-#include <stdlib.h>
-#include <windows.h>
-#include <conio.h>
-#include <locale.h>
+
+#ifndef funcoes_h
+#define funcoes_h
+
 typedef struct{
     int codigo_conta;
     char banco[50];
@@ -26,30 +24,26 @@ typedef struct{
     tipoapontador ultimo;
 }tipolista;
 //metodo criado para verificar se esse codigo já existe
-tipoapontador pesquisa(tipolista *L, int cod){
-    tipoapontador aux;
-     aux = L->primeiro;
-     while (aux != NULL){
-        if (aux->conteudo.codigo_conta==cod){
-            return aux;
-        }
-        aux = aux ->proximo;
-     }
-     return NULL;
-}
+tipoapontador pesquisa(tipolista *L, int cod);
 /*
 Autor: Gustavo
 Função que conta quantos elementos tem na lista de cadastros
 */
-int contador(tipolista *l)
-{
-    tipoapontador aux;
-    int cont = 0;
-    aux = l->primeiro;
-    while (aux != NULL)
-    {
-        cont++;
-        aux = aux->proximo;
-    }
-    return cont;
-}
+void Movimentacao();
+
+void cadastrar(tipolista *l);
+
+int contador(tipolista *l);
+
+void cadastrofinal(tipolista *l);
+
+void cadastrarinicio(tipolista *l);
+
+void casdastrar_posicao(tipolista *l);
+
+void consultar_cadastro(tipolista *l);
+
+void gotoxy(int x, int y);
+
+void tela();
+#endif 
