@@ -8,6 +8,7 @@ Obj: tela principal e tela para inserir as infromacoes do cadastro
 #include "funcoes.h"
 #include <stdlib.h>
 #include <stdio.h>
+//Funcao que ira gerar a tela principal do programa
 void tela()
 {
     int lin;
@@ -40,22 +41,23 @@ void tela()
     gotoxy(02, 24);
     printf("MSG:  ");
 }
+//Funcao que ira criar a tela para inserir as informações do cadastro
 void telacadastro(){
     gotoxy(05,7);
-    printf("Codigo da Conta.............................:");
+    printf("1-Codigo da Conta.............................:");
     gotoxy(05,9);
-    printf("Banco.......................................:");
+    printf("2-Banco.......................................:");
     gotoxy(05,11);
-    printf("Agencia.....................................:");
+    printf("3-Agencia.....................................:");
     gotoxy(05,13);
-    printf("Numero da Conta.............................:");
+    printf("4-Numero da Conta.............................:");
     gotoxy(05,15);
-    printf("Tipo da Conta(Corrente, Poupanca ou Credito):");
+    printf("5-Tipo da Conta(Corrente, Poupanca ou Credito):");
     gotoxy(5,17);
-    printf("Saldo.......................................:");
+    printf("6-Saldo.......................................:");
     gotoxy(5,19);
-    printf("Limite Permitido............................:");
+    printf("7-Limite Permitido............................:");
     gotoxy(5,21);
-    printf("Status da Conta.............................:");
+    printf("8-Status da Conta.............................:");
 
 }

@@ -59,7 +59,7 @@ void cadastrar(tipolista *l)
             cadastrar(l);
             break;
         case 7:
-            cadastrar(l);
+            alterar_conta_bancaria(l);
             break;
         case 8:
             consultar_cadastro(l);

@@ -22,7 +22,7 @@ void cadastrarinicio(tipolista *l)
             telacadastro();
             gotoxy(7, 24);
             printf("Digite 0 para sair");
-            gotoxy(50, 7);
+            gotoxy(52, 7);
             scanf("%d", &ContaBancaria.codigo_conta);
             aux = pesquisa(l, ContaBancaria.codigo_conta);
             if (aux != NULL)
@@ -34,23 +34,23 @@ void cadastrarinicio(tipolista *l)
         } while (aux != NULL);
         if (ContaBancaria.codigo_conta != 0)
         {
-            gotoxy(50, 9);
+            gotoxy(52, 9);
             fflush(stdin);
             fgets(ContaBancaria.banco, 50, stdin);
-            gotoxy(50, 11);
+            gotoxy(52, 11);
             fflush(stdin);
             fgets(ContaBancaria.agencia, 10, stdin);
-            gotoxy(50, 13);
+            gotoxy(52, 13);
             fflush(stdin);
             fgets(ContaBancaria.numero_conta, 20, stdin);
-            gotoxy(50, 15);
+            gotoxy(52, 15);
             fflush(stdin);
             fgets(ContaBancaria.tipo_conta, 20, stdin);
-            gotoxy(50, 17);
+            gotoxy(52, 17);
             scanf("%lf", &ContaBancaria.vl_saldo);
-            gotoxy(50, 19);
+            gotoxy(52, 19);
             scanf("%lf", &ContaBancaria.vl_limite);
-            gotoxy(50, 21);
+            gotoxy(52, 21);
             fflush(stdin);
             fgets(ContaBancaria.status, 10, stdin);
             gotoxy(7, 24);
