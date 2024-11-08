@@ -7,8 +7,6 @@ Obj: Criar um contador que auxilia o codigo escrevido
 */
 
 #include "funcoes.h"
-#include<stdio.h>
-#include<stdlib.h>
 int contador(tipolista *l)
 {
     tipoapontador aux;

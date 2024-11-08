@@ -6,8 +6,6 @@ Equipe: RA: 173342-2024
 Obj: Funcao que ira permitir o código percorrer a lista 
 */
 #include "funcoes.h"
-#include<stdio.h>
-#include<stdlib.h>
 tipoapontador pesquisa(tipolista *L, int cod){
     tipoapontador aux;
      aux = L->primeiro;

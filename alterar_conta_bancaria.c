@@ -6,8 +6,6 @@ Equipe: RA: 173342-2024
 Obj: Permitir a alteração dos dados já inseridos
 */
 #include "funcoes.h"
-#include <stdio.h>
-#include <stdlib.h>
 //Funcao que ira permitir alterar o dado desejado
 void alterar_conta_bancaria(tipolista *l){
     tipoapontador aux;

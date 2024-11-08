@@ -6,8 +6,6 @@ Equipe: RA: 173342-2024
 Obj: Menus de cadastro Bancario e Moviemntacao de Contas
 */
 #include "funcoes.h"
-#include <stdio.h>
-#include <stdlib.h>
 //Menu de Cadastro de Contas
 void cadastrar(tipolista *l)
 {

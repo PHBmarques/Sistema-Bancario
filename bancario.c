@@ -5,8 +5,8 @@ Equipe: RA: 173342-2024
         RA: 179427-2024
 Obj: Ser nosso programa principal
 */
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
 #include <windows.h>
 #include <conio.h>
 #include <locale.h>

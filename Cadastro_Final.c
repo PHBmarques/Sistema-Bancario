@@ -9,8 +9,6 @@ Obj: Cadastrar os dados no incio
 */
 
 #include "funcoes.h"
-#include<stdio.h>
-#include<stdlib.h>
 void cadastrofinal(tipolista *l)
 {
     int resp;

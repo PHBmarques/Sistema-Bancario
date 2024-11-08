@@ -6,8 +6,6 @@ Equipe: RA: 173342-2024
 Obj:Consulta os dados que ja foram cadastrados
 */
 #include "funcoes.h"
-#include<stdio.h>
-#include<stdlib.h>
 void consultar_cadastro(tipolista *l)
 {
     tipoapontador p;

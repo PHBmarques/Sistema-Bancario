@@ -6,8 +6,6 @@ Equipe: RA: 173342-2024
 Obj: tela principal e tela para inserir as infromacoes do cadastro
 */
 #include "funcoes.h"
-#include <stdlib.h>
-#include <stdio.h>
 //Funcao que ira gerar a tela principal do programa
 void tela()
 {

@@ -7,8 +7,9 @@ Obj: funcoes utilizadas no programa
 */
 #ifndef funcoes_h
 #define funcoes_h
-
-typedef struct{
+#include<stdio.h>
+#include<stdlib.h>
+    typedef struct{
     int codigo_conta;
     char banco[50];
     char agencia[10];

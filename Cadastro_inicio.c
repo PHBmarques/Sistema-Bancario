@@ -6,8 +6,6 @@ Equipe: RA: 173342-2024
 Obj: Cadastrar os dados no incio
 */
 #include "funcoes.h"
-#include<stdio.h>
-#include<stdlib.h>
 void cadastrarinicio(tipolista *l)
 {
     int resp;

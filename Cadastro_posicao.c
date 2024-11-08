@@ -6,8 +6,6 @@ Equipe: RA: 173342-2024
 Obj:Permite o cadastro dos dados em uma determinada posicao
 */
 #include "funcoes.h"
-#include<stdio.h>
-#include<stdlib.h>
 void casdastrar_posicao(tipolista *l)
 {
     int resp = 0;
