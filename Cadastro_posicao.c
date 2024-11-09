@@ -1,4 +1,4 @@
-/* 
+/*
 Autor: Gustavo de Lima Sossai
 Data: 04/11/2024
 Equipe: RA: 173342-2024
@@ -65,13 +65,13 @@ void casdastrar_posicao(tipolista *l)
             {
                 do
                 {
-                    gotoxy(07, 23);
+                    gotoxy(7, 24);
                     printf("Em qual posicao deseja gravar os dados:");
                     scanf("%d", &pos);
                     qtde = contador(l);
                     if (pos > qtde)
                     {
-                        gotoxy(07, 23);
+                        gotoxy(7, 24);
                         printf("Posicao invalida                         ");
                         getch();
                     }

@@ -12,10 +12,13 @@ int contador(tipolista *l)
     tipoapontador aux;
     int cont = 0;
     aux = l->primeiro;
+
+    // Percorre a lista até que o ponteiro aux aponte para NULL
     while (aux != NULL)
     {
         cont++;
         aux = aux->proximo;
     }
+    //Retorna os elementos contados na lista
     return cont;
 }

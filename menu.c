@@ -48,13 +48,13 @@ void cadastrar(tipolista *l)
             casdastrar_posicao(l);
             break;
         case 4:
-            cadastrar(l);
+            remover_final(l);
             break;
         case 5:
-            cadastrar(l);
+            remover_inicio(l);
             break;
         case 6:
-            cadastrar(l);
+            remover_posicao(l);
             break;
         case 7:
             alterar_conta_bancaria(l);
