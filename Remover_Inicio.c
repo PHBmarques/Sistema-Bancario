@@ -11,7 +11,6 @@ Obj:Função que permita que o usuario excluia um casdastro no inicio da lista
 void remover_inicio(tipolista *l)
 {
     tipoapontador p;
-
     // Verifica se a lista possui apenas um cadastro
     if (l->primeiro->proximo == NULL)
     {
@@ -19,6 +18,9 @@ void remover_inicio(tipolista *l)
         free(l->primeiro);
         l->primeiro = NULL;
         l->ultimo = NULL;
+        gotoxy(7, 24);
+        printf("Cadastro removido com sucesso");
+        getch();
     }
     else
     {

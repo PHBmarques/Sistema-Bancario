@@ -13,13 +13,15 @@ void remover_final(tipolista *l)
 {
     tipoapontador p;
     tipoapontador r;
-
     // Verificando se a lista possui algum cadastro
-    if (l->primeiro->proximo = NULL)
+    if (l->primeiro->proximo == NULL)
     {
         free(l->primeiro);
         l->primeiro = NULL;
         l->ultimo = NULL;
+        gotoxy(7, 24);
+        printf("Cadastro removido com sucesso");
+        getch();
     }
     else
     {

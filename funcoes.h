@@ -9,6 +9,7 @@ Obj: funcoes utilizadas no programa
 #define funcoes_h
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 typedef struct
 {
     int codigo_conta;
