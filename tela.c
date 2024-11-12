@@ -43,19 +43,19 @@ void tela()
 void telacadastro()
 {
     gotoxy(05, 7);
-    printf("1-Codigo da Conta.............................:");
+    printf("Codigo da Conta...............................:");
     gotoxy(05, 9);
-    printf("2-Banco.......................................:");
+    printf("1-Banco.......................................:");
     gotoxy(05, 11);
-    printf("3-Agencia.....................................:");
+    printf("2-Agencia.....................................:");
     gotoxy(05, 13);
-    printf("4-Numero da Conta.............................:");
+    printf("3-Numero da Conta.............................:");
     gotoxy(05, 15);
-    printf("5-Tipo da Conta(Corrente, Poupanca ou Credito):");
+    printf("4-Tipo da Conta(Corrente, Poupanca ou Credito):");
     gotoxy(5, 17);
-    printf("6-Saldo.......................................:");
+    printf("5-Saldo.......................................:");
     gotoxy(5, 19);
-    printf("7-Limite Permitido............................:");
+    printf("6-Limite Permitido............................:");
     gotoxy(5, 21);
-    printf("8-Status da Conta.............................:");
+    printf("7-Status da Conta.............................:");
 }

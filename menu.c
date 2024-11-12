@@ -60,7 +60,7 @@ void cadastrar(tipolista *l)
             alterar_conta_bancaria(l);
             break;
         case 8:
-            consultar_cadastro(l);
+            opcoes_de_consultar(l);
             break;
         }
     } while (opc != 9);

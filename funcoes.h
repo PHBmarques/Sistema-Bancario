@@ -56,6 +56,8 @@ void remover_inicio(tipolista *l);
 void remover_final(tipolista *l);
 // Permite que o usuario possa remover o cadastro no em qualquer lugar da lista
 void remover_posicao(tipolista *l);
+// Sera as opções em que consultaremos as contas
+void opcoes_de_consultar(tipolista *l);
 void gotoxy(int x, int y);
 // Função que ira criar a tela principal do programa
 void tela();

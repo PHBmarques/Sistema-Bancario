@@ -81,7 +81,7 @@ void cadastrofinal(tipolista *l)
             }
             // caso ele não queira cadastrar uma nova Conta ira voltar para a tela de inicio
             gotoxy(7, 24);
-            printf("Deseja cadastrar uma nova conta Bancaria (1 = sim / 2 = nao)? ");
+            printf("Deseja cadastrar uma nova conta Bancaria (1=SIM/2=NAO)? ");
             scanf("%d", &resp);
         }
     } while (resp == 1);
