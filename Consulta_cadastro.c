@@ -24,6 +24,16 @@ void consultar_cadastro(tipolista *l)
         printf("%s", p->conteudo.numero_conta);
         gotoxy(52, 15);
         printf("%s", p->conteudo.tipo_conta);
+        if(p->conteudo.tipo_conta[0]== '1'){
+            gotoxy(52,15);
+            printf("Corrente");
+        }else if(p->conteudo.tipo_conta[0]== '2'){
+            gotoxy(52,15);
+            printf("Poupanca");
+        }else if(p->conteudo.tipo_conta[0]== '3'){
+            gotoxy(52,15);
+            printf("Cartao credito");
+        }
         gotoxy(52, 17);
         printf("%.2lf", p->conteudo.vl_saldo);
         gotoxy(52, 19);
