@@ -75,10 +75,10 @@ void cadastrarinicio(tipolista *l)
             gotoxy(52, 21);
             fflush(stdin);
             fgets(ContaBancaria.status, 10, stdin);
-            gotoxy(7, 24);
+          gotoxy(7, 24);
             // Ira perfuntar se o usuario deseja salvar esses dados ou não
             printf("Deseja Salvar os dados(1-SIM/2-NAO):");
-            scanf("%d", &resp);
+            scanf("%d", &resp);  
             // Caso ele deseje salvar os dados ira cadastralos no inicio do sistema
             if (resp == 1)
             {
@@ -100,7 +100,7 @@ void cadastrarinicio(tipolista *l)
                 getch();
             }
             gotoxy(7, 24);
-            printf("Deseja cadastrar uma nova conta Bancaria (1 = sim / 2 = nao)? ");
+            printf("Deseja cadastrar uma nova conta Bancaria (1=SIM / 2=NAO)? ");
             scanf("%d", &resp);
         }
     } while (resp == 1);
