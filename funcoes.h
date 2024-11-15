@@ -65,5 +65,8 @@ void gotoxy(int x, int y);
 void tela();
 // Função que ira cirar a tela para inserir os dados necessarios
 void telacadastro();
-
+//Funcao que ira gravar os dados em um arquivo apos sair do código
+void gravar_dados(tipolista *l);
+//Funcao que ira ler os dados que foram salvos no arquivo binario
+void ler_dados(tipolista *l);
 #endif

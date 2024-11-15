@@ -28,6 +28,9 @@ int main()
     do
     {
         tela();
+        ler_dados(&l);
+        gotoxy(7,24);
+        printf("                                            ");
         gotoxy(28, 03);
         printf("MENU PRINCIPAL");
         gotoxy(30, 10);
@@ -50,4 +53,5 @@ int main()
         }
 
     } while (opc != 3);
+    gravar_dados(&l);
 }

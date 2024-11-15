@@ -17,7 +17,7 @@ void remover_posicao(tipolista *l)
     int opc;
     do
     {
-        gotoxy(07, 23);
+        gotoxy(07, 24);
         printf("Digite a posicao que deseja remover:");
         scanf("%d", &pos);
 
