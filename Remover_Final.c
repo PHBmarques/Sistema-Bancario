@@ -14,51 +14,52 @@ void remover_final(tipolista *l)
     tipoapontador p;
     tipoapontador r;
     int opc;
-    
-
 
     p = l->ultimo;
-    
-        tela();
-        telacadastro();
-        gotoxy(52, 7);
-        printf("%d", p->conteudo.codigo_conta);
-        gotoxy(52, 9);
-        printf("%s", p->conteudo.banco);
-        gotoxy(52, 11);
-        printf("%s", p->conteudo.agencia);
-        gotoxy(52, 13);
-        printf("%s", p->conteudo.numero_conta);
+
+    tela();
+    telacadastro();
+    gotoxy(18, 03);
+    printf("REMOCAO DE CONTAS BANCARIAS NO FINAL");
+    gotoxy(52, 7);
+    printf("%d", p->conteudo.codigo_conta);
+    gotoxy(52, 9);
+    printf("%s", p->conteudo.banco);
+    gotoxy(52, 11);
+    printf("%s", p->conteudo.agencia);
+    gotoxy(52, 13);
+    printf("%s", p->conteudo.numero_conta);
+    gotoxy(52, 15);
+    printf("%s", p->conteudo.tipo_conta);
+    if (p->conteudo.tipo_conta[0] == '1')
+    {
         gotoxy(52, 15);
-        printf("%s", p->conteudo.tipo_conta);
-        if (p->conteudo.tipo_conta[0] == '1')
-        {
-            gotoxy(52, 15);
-            printf("Corrente");
-        }
-        else if (p->conteudo.tipo_conta[0] == '2')
-        {
-            gotoxy(52, 15);
-            printf("Poupanca");
-        }
-        else if (p->conteudo.tipo_conta[0] == '3')
-        {
-            gotoxy(52, 15);
-            printf("Cartao credito");
-        }
-        gotoxy(52, 17);
-        printf("%.2lf", p->conteudo.vl_saldo);
-        gotoxy(52, 19);
-        printf("%.2lf", p->conteudo.vl_limite);
-        gotoxy(52, 21);
-        printf("%s", p->conteudo.status);
-        gotoxy(7, 24);
-    
-        gotoxy(7, 24);    
-        printf("Deseja realmente remover esse banco(1-SIM/2-NAO):");
-        scanf("%d", &opc);
-        
-        if(opc == 1){         
+        printf("Corrente");
+    }
+    else if (p->conteudo.tipo_conta[0] == '2')
+    {
+        gotoxy(52, 15);
+        printf("Poupanca");
+    }
+    else if (p->conteudo.tipo_conta[0] == '3')
+    {
+        gotoxy(52, 15);
+        printf("Cartao credito");
+    }
+    gotoxy(52, 17);
+    printf("%.2lf", p->conteudo.vl_saldo);
+    gotoxy(52, 19);
+    printf("%.2lf", p->conteudo.vl_limite);
+    gotoxy(52, 21);
+    printf("%s", p->conteudo.status);
+    gotoxy(7, 24);
+
+    gotoxy(7, 24);
+    printf("Deseja realmente remover esse banco(1-SIM/2-NAO):");
+    scanf("%d", &opc);
+
+    if (opc == 1)
+    {
         // Verificando se a lista possui algum cadastro
         if (l->primeiro->proximo == NULL)
         {
@@ -66,7 +67,9 @@ void remover_final(tipolista *l)
             l->primeiro = NULL;
             l->ultimo = NULL;
             gotoxy(7, 24);
-            printf("Cadastro removido com sucesso                                        ");
+            printf("                                                    ");
+            gotoxy(7, 24);
+            printf("Cadastro removido com sucesso");
             getch();
         }
         else
@@ -81,12 +84,15 @@ void remover_final(tipolista *l)
                 p = p->proximo;
                 r = r->proximo;
             }
-
+            gotoxy(7, 24);
+            printf("                                                    ");
+            gotoxy(7, 24);
+            printf("Cadastro removido com sucesso");
+            getch();
             // Quando encontrar o elemento da lista devera eliminar o espaço de memoria
             free(p);
             r->proximo = NULL;
             l->ultimo = r;
-            
         }
-        } 
+    }
 }

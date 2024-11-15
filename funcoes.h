@@ -58,9 +58,12 @@ void remover_final(tipolista *l);
 void remover_posicao(tipolista *l);
 // Sera as opções em que consultaremos as contas
 void opcoes_de_consultar(tipolista *l);
+//sera usado para consultar uma conta bancaria especifica pelo código
+void Consulta_por_Codigo(tipolista *l);
 void gotoxy(int x, int y);
 // Função que ira criar a tela principal do programa
 void tela();
 // Função que ira cirar a tela para inserir os dados necessarios
 void telacadastro();
+
 #endif

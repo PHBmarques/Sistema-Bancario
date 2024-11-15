@@ -22,10 +22,14 @@ void cadastrofinal(tipolista *l)
         {
             tela();
             telacadastro();
+            gotoxy(18, 03);
+            printf("Cadastro de Contas Bancarias-No Final");
             gotoxy(7, 24);
             printf("Digite 0 para sair");
             gotoxy(52, 7);
             scanf("%d", &ContaBancaria.codigo_conta);
+            // limpa o buffer apos o uso do scanf
+            while (getchar() != '\n');
             aux = pesquisa(l, ContaBancaria.codigo_conta);
             if (aux != NULL)
             {
@@ -45,32 +49,40 @@ void cadastrofinal(tipolista *l)
             gotoxy(52, 13);
             fflush(stdin);
             fgets(ContaBancaria.numero_conta, 20, stdin);
-            do{
-            gotoxy(07,24);
-            printf("Utilizar: 1=Corrente/2=Poupanca/3=Cartao Credito");
-            gotoxy(52, 15);
-            fflush(stdin);
-            fgets(ContaBancaria.tipo_conta, 20, stdin);
-            if(ContaBancaria.tipo_conta[0]== '1'){
-                gotoxy(53,15);
-                printf("-Corrente");
-            }else if(ContaBancaria.tipo_conta[0]== '2'){
-                gotoxy(53,15);
-                printf("-Poupanca");
-            }else if(ContaBancaria.tipo_conta[0]== '3'){
-                gotoxy(53,15);
-                printf("-Cartao Credito");
-            }else{
-                gotoxy(7,24);
-                printf("                                            ");
-                gotoxy(7,24);
-                printf("Tipo de Conta invalido");
-                getch();
-                gotoxy(52,15);
-                printf("  ");    
-            }
-            }while(ContaBancaria.tipo_conta[0] != '1' && ContaBancaria.tipo_conta[0] != '2' && ContaBancaria.tipo_conta[0] != '3');
-            gotoxy(7,24);
+            do
+            {
+                gotoxy(07, 24);
+                printf("Utilizar: 1=Corrente/2=Poupanca/3=Cartao Credito");
+                gotoxy(52, 15);
+                fflush(stdin);
+                fgets(ContaBancaria.tipo_conta, 20, stdin);
+                if (ContaBancaria.tipo_conta[0] == '1')
+                {
+                    gotoxy(53, 15);
+                    printf("-Corrente");
+                }
+                else if (ContaBancaria.tipo_conta[0] == '2')
+                {
+                    gotoxy(53, 15);
+                    printf("-Poupanca");
+                }
+                else if (ContaBancaria.tipo_conta[0] == '3')
+                {
+                    gotoxy(53, 15);
+                    printf("-Cartao Credito");
+                }
+                else
+                {
+                    gotoxy(7, 24);
+                    printf("                                            ");
+                    gotoxy(7, 24);
+                    printf("Tipo de Conta invalido");
+                    getch();
+                    gotoxy(52, 15);
+                    printf("  ");
+                }
+            } while (ContaBancaria.tipo_conta[0] != '1' && ContaBancaria.tipo_conta[0] != '2' && ContaBancaria.tipo_conta[0] != '3');
+            gotoxy(7, 24);
             printf("                                                        ");
             gotoxy(52, 17);
             scanf("%lf", &ContaBancaria.vl_saldo);

@@ -14,6 +14,8 @@ void consultar_cadastro(tipolista *l)
     {
         tela();
         telacadastro();
+        gotoxy(20,03);
+        printf("Consulta de Contas Cadastradas");
         gotoxy(52, 7);
         printf("%d", p->conteudo.codigo_conta);
         gotoxy(52, 9);

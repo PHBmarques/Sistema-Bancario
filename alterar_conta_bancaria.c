@@ -30,9 +30,10 @@ void alterar_conta_bancaria(tipolista *l)
                 printf("Cadastro nao Existe");
                 getch();
             }
-        } while (aux != 0 && ContaBancaria.codigo_conta != 0);
+        } while (aux == NULL && ContaBancaria.codigo_conta != 0);
         if (ContaBancaria.codigo_conta != 0)
         {
+            ContaBancaria = aux->conteudo;
             gotoxy(52, 7);
             printf("%d", aux->conteudo.codigo_conta);
             gotoxy(52, 9);

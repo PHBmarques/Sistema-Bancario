@@ -47,7 +47,7 @@ void opcoes_de_consultar(tipolista *l)
                 consultar_cadastro(l);
                 break;
             case 2:
-
+                Consulta_por_Codigo(l);
                 break;
             case 3:
 
