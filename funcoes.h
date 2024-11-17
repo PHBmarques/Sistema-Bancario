@@ -32,10 +32,24 @@ typedef struct
     tipoapontador primeiro;
     tipoapontador ultimo;
 } tipolista;
-
+//Funçoes da moviemtação da conta
+typedef struct{
+    int sequencial;
+    int codigo_conta;
+    char dt_movimento[11];
+    char to_movimento[15];
+    double vl_movimento;
+    double vl_saldo;
+}movimento;
+typedef struct tipoitem_movi *tipoapontador_movi;
+typedef struct tipoitem_movi{
+    movimento conteudo;
+    tipoapontador_movi proximo;
+    tipoapontador_movi anterior;
+}tipoitem_movi;
 tipoapontador pesquisa(tipolista *L, int cod);
 // Menu da movimentação financeira
-void Movimentacao();
+void Movimentacao(tipolista *l);
 // Menu de cadastro de Contas
 void cadastrar(tipolista *l);
 // Função que ira contar quantos elementos já foram cadastrados na lista
@@ -73,4 +87,8 @@ void ler_dados(tipolista *l);
 void tela_consultar_ordem_numerica();
 // Função de consultar o codigo em ordem numerica
 void consultar_ordem_numerica(tipolista *l);
+//Função que cria a tela para o cadastro de novas movimentações
+void tela_movi();
+//função que ira cadastrar um novo movimento bancario
+void cadastro_movi(tipolista  *l);
 #endif

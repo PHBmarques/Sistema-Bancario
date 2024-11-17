@@ -66,7 +66,7 @@ void cadastrar(tipolista *l)
     } while (opc != 9);
 }
 //Menu de movimentacao financeira
-void Movimentacao()
+void Movimentacao(tipolista *l)
 {
     int opc = 0;
     do
@@ -84,5 +84,10 @@ void Movimentacao()
         gotoxy(7, 24);
         printf("Digite a opcao: ");
         scanf("%d", &opc);
+        switch(opc){
+            case 1:
+            cadastro_movi(l);
+            break;
+        }
     } while (opc != 4);
 }

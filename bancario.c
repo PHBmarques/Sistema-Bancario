@@ -48,7 +48,7 @@ int main()
             cadastrar(&l);
             break;
         case 2:
-            Movimentacao();
+            Movimentacao(&l);
             break;
         }
 
