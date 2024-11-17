@@ -50,7 +50,7 @@ void opcoes_de_consultar(tipolista *l)
                 Consulta_por_Codigo(l);
                 break;
             case 3:
-
+                consultar_ordem_numerica(l);
                 break;
             case 4:
                 break;

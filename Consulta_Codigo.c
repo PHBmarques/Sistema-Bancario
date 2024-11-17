@@ -26,7 +26,7 @@ void Consulta_por_Codigo(tipolista *l){
             if (aux2 == NULL && ContaBancaria.codigo_conta != 0)
             {
                 gotoxy(7, 24);
-                printf("Cadastro nao Existe");
+                printf("Cadastro nao existe");
                 getch();
             }
         } while (aux2 == 0 && ContaBancaria.codigo_conta != 0);

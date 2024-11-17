@@ -69,4 +69,8 @@ void telacadastro();
 void gravar_dados(tipolista *l);
 //Funcao que ira ler os dados que foram salvos no arquivo binario
 void ler_dados(tipolista *l);
+//Função que tera papel de ser a tela de consulta de dados em ordem por codigo
+void tela_consultar_ordem_numerica();
+// Função de consultar o codigo em ordem numerica
+void consultar_ordem_numerica(tipolista *l);
 #endif
