@@ -21,6 +21,7 @@ typedef struct
     double vl_limite;
     char status[10];
 } infocontas;
+
 typedef struct tipoitem *tipoapontador;
 typedef struct tipoitem
 {
@@ -47,6 +48,10 @@ typedef struct tipoitem_movi{
     tipoapontador_movi proximo;
     tipoapontador_movi anterior;
 }tipoitem_movi;
+typedef struct{
+    tipoapontador_movi primeiro;
+    tipoapontador_movi ultimo;
+}tipolista_movi;
 tipoapontador pesquisa(tipolista *L, int cod);
 // Menu da movimentação financeira
 void Movimentacao(tipolista *l);

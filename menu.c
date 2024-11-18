@@ -71,6 +71,7 @@ void Movimentacao(tipolista *l)
     int opc = 0;
     do
     {
+        tela();
         gotoxy(24, 03);
         printf("MOVIMENTACAO FINANCEIRA");
         gotoxy(30, 10);

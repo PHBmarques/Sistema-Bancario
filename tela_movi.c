@@ -24,5 +24,15 @@ void tela_movi(){
     gotoxy(10,13);
     printf("Total Saldo + Limite..:");
     gotoxy(2,14);
-    printf("------------------------------------------------------------------------");
+    printf("-------------------------------------------------------------------------------");
+    gotoxy(10,15);
+    printf("1-Data Movimentacao...:");
+    gotoxy(10,16);
+    printf("2-Tipo Movimentacao...:");
+    gotoxy(10,17);
+    printf("3-Favorecido..........:");
+    gotoxy(10,18);
+    printf("4-Valor Movimentacao..:");
+    gotoxy(10,19);
+    printf("5-Novo Saldo..........:");
 }
