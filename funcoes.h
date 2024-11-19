@@ -10,6 +10,7 @@ Obj: funcoes utilizadas no programa
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#include <string.h>
 typedef struct
 {
     int codigo_conta;
@@ -33,25 +34,29 @@ typedef struct
     tipoapontador primeiro;
     tipoapontador ultimo;
 } tipolista;
-//Funçoes da moviemtação da conta
-typedef struct{
+// Funçoes da moviemtação da conta
+typedef struct
+{
     int sequencial;
     int codigo_conta;
     char dt_movimento[11];
     char to_movimento[15];
     double vl_movimento;
     double vl_saldo;
-}movimento;
+} movimento;
 typedef struct tipoitem_movi *tipoapontador_movi;
-typedef struct tipoitem_movi{
+typedef struct tipoitem_movi
+{
     movimento conteudo;
     tipoapontador_movi proximo;
     tipoapontador_movi anterior;
-}tipoitem_movi;
-typedef struct{
+} tipoitem_movi;
+typedef struct
+{
     tipoapontador_movi primeiro;
     tipoapontador_movi ultimo;
-}tipolista_movi;
+} tipolista_movi;
+
 tipoapontador pesquisa(tipolista *L, int cod);
 // Menu da movimentação financeira
 void Movimentacao(tipolista *l);
@@ -77,25 +82,25 @@ void remover_final(tipolista *l);
 void remover_posicao(tipolista *l);
 // Sera as opções em que consultaremos as contas
 void opcoes_de_consultar(tipolista *l);
-//sera usado para consultar uma conta bancaria especifica pelo código
+// sera usado para consultar uma conta bancaria especifica pelo código
 void Consulta_por_Codigo(tipolista *l);
 void gotoxy(int x, int y);
 // Função que ira criar a tela principal do programa
 void tela();
 // Função que ira cirar a tela para inserir os dados necessarios
 void telacadastro();
-//Funcao que ira gravar os dados em um arquivo apos sair do código
+// Funcao que ira gravar os dados em um arquivo apos sair do código
 void gravar_dados(tipolista *l);
-//Funcao que ira ler os dados que foram salvos no arquivo binario
+// Funcao que ira ler os dados que foram salvos no arquivo binario
 void ler_dados(tipolista *l);
-//Função que tera papel de ser a tela de consulta de dados em ordem por codigo
+// Função que tera papel de ser a tela de consulta de dados em ordem por codigo
 void tela_consultar_ordem_numerica();
 // Função de consultar o codigo em ordem numerica
 void consultar_ordem_numerica(tipolista *l);
-//Função que cria a tela para o cadastro de novas movimentações
+// Função que cria a tela para o cadastro de novas movimentações
 void tela_movi();
-//função que ira cadastrar um novo movimento bancario
-void cadastro_movi(tipolista  *l);
-//Função que permite que mostre as funções em ordem alfabetica
+// função que ira cadastrar um novo movimento bancario
+void cadastro_movi(tipolista *l);
+// Função que permite que mostre as funções em ordem alfabetica
 void ordem_alfabetica(tipolista *l);
 #endif

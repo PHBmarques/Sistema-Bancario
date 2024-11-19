@@ -7,7 +7,6 @@ Obj:Função de consulta casdastro em ordem alfabetica
 */
 
 #include "funcoes.h"
-
 void ordem_alfabetica(tipolista *l)
 {
     tipoapontador p;
