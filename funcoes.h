@@ -96,4 +96,6 @@ void consultar_ordem_numerica(tipolista *l);
 void tela_movi();
 //função que ira cadastrar um novo movimento bancario
 void cadastro_movi(tipolista  *l);
+//Função que permite que mostre as funções em ordem alfabetica
+void ordem_alfabetica(tipolista *l);
 #endif

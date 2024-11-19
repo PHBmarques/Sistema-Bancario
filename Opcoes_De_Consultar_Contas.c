@@ -12,7 +12,7 @@ void opcoes_de_consultar(tipolista *l)
 {
 
     int opc;
-
+    tipoapontador p;
     do
     {
         tela();
@@ -53,6 +53,7 @@ void opcoes_de_consultar(tipolista *l)
                 consultar_ordem_numerica(l);
                 break;
             case 4:
+                ordem_alfabetica(l);
                 break;
             }
         }

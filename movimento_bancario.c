@@ -42,6 +42,7 @@ void cadastro_movi(tipolista*l){
             printf("%.2lf", aux2->conteudo.vl_limite);
             gotoxy(52, 21);
             printf("%s", aux2->conteudo.status);
+            getch();
         }
     }while(resp==1);
 }

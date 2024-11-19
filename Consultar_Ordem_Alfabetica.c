@@ -3,29 +3,30 @@ Autor: Gustavo de Lima Sossai
 Data: 16/11/2024
 Equipe: RA: 173342-2024
         RA: 179427-2024
-Obj:Função de consulta casdastro em ordem de codigo
+Obj:Função de consulta casdastro em ordem alfabetica
 */
 
 #include "funcoes.h"
 
-void consultar_ordem_numerica(tipolista *l)
+void ordem_alfabetica(tipolista *l)
 {
-    tela();
-    tela_consultar_ordem_numerica();
     tipoapontador p;
     infocontas ContaBancaria;
     int linha = 8;
     int troca;
     tipoapontador x;
-    // ordenação simples pela comparação do código da conta
+    tela();
+    tela_consultar_ordem_numerica();
+
     p = l->primeiro;
-    while (troca) // Serve para trocar o codigo de posição(indicação)
+
+    while (troca)
     {
-        troca = 0; // Esta marcando que não ouve troca
-        p = l->primeiro; // apontar para o primeiro codigo da lista 
-        while (p != NULL && p->proximo != NULL)
+        troca = 0;       // Esta marcando que não ouve troca
+        p = l->primeiro; // apontar para o primeiro codigo da lista
+        while (p == NULL && p->proximo != NULL)
         {
-            if (p->conteudo.codigo_conta > p->proximo->conteudo.codigo_conta)
+            if (strcmp(p->conteudo.numero_conta, p->proximo->conteudo.numero_conta) > 0)
             {
                 // troca o conteudo entre p e p de proximo
                 x = p->proximo;

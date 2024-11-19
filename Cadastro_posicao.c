@@ -16,7 +16,6 @@ void casdastrar_posicao(tipolista *l)
     int pos;
     int x;
     int qtde;
-
     do
     {
         do
@@ -30,7 +29,8 @@ void casdastrar_posicao(tipolista *l)
             gotoxy(52, 7);
             scanf("%d", &ContaBancaria.codigo_conta);
             // limpa o buffer apos o uso do scanf
-            while (getchar() != '\n');
+            while (getchar() != '\n')
+                ;
             aux = pesquisa(l, ContaBancaria.codigo_conta);
             if (aux != NULL)
             {

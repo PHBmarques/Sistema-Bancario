@@ -10,6 +10,9 @@ Obj:Tela de consulta casdastro em ordem de codigo
 
 void tela_consultar_ordem_numerica(){
     
+    gotoxy(20,03);
+    printf("CONSULTAR CONTAS BANCARIAS");
+
     gotoxy(2, 6);
     printf("Cd");
 
