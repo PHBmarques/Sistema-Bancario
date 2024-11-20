@@ -69,6 +69,7 @@ void cadastrar(tipolista *l)
 void Movimentacao(tipolista *l)
 {
     int opc = 0;
+    tipolista_movi M;
     do
     {
         tela();
@@ -87,7 +88,7 @@ void Movimentacao(tipolista *l)
         scanf("%d", &opc);
         switch(opc){
             case 1:
-            cadastro_movi(l);
+            cadastro_movi(l, &M);
             break;
         }
     } while (opc != 4);

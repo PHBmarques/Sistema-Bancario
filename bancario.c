@@ -23,6 +23,7 @@ int main()
     system("color 1F");
     int opc = 0;
     tipolista l;
+    tipolista_movi M;
     l.primeiro = NULL;
     l.ultimo = NULL;
     do

@@ -6,7 +6,7 @@ Equipe: RA: 173342-2024
 Obj: Cadastrar uma nova movimentação bancaria
 */
 #include "funcoes.h"
-void cadastro_movi(tipolista*l){
+void cadastro_movi(tipolista*l, tipolista_movi *M){
     tipoapontador aux2;
     movimento movi;
     infocontas ContaBancaria;
@@ -18,6 +18,13 @@ void cadastro_movi(tipolista*l){
     do{
     tela();
     tela_movi();
+    if(M==NULL){
+        movi.sequencial=1;
+    }else{
+        movi.sequencial=M->ultimo->conteudo.sequencial+1;
+    }
+    gotoxy(33,6);
+    printf("%d",movi.sequencial);
     gotoxy(7, 24);
         do{
             printf("Digite 0 para sair");
@@ -34,21 +41,23 @@ void cadastro_movi(tipolista*l){
         if(ContaBancaria.codigo_conta !=0){
             ContaBancaria = aux2->conteudo;
             gotoxy(33, 8);
-            printf("%s", aux2->conteudo.banco);
+            printf("%s",ContaBancaria.banco );
             gotoxy(33, 9);
-            printf("%s", aux2->conteudo.agencia);
+            printf("%s", ContaBancaria.agencia);
             gotoxy(33, 10);
-            printf("%s", aux2->conteudo.numero_conta);
+            printf("%s", ContaBancaria.numero_conta);
             gotoxy(33, 11);
-            printf("%s", aux2->conteudo.tipo_conta);
+            printf("%s", ContaBancaria.tipo_conta);
             gotoxy(33, 12);
-            printf("%.2lf", aux2->conteudo.vl_saldo);
+            printf("%.2lf", ContaBancaria.vl_saldo);
             gotoxy(33, 13);
-            printf("%.2lf", aux2->conteudo.vl_limite);
-            gotoxy(33, 14);
-            printf("%9.2f",aux2->conteudo.vl_limite+aux2->conteudo.vl_saldo);
+            printf("%.2lf", ContaBancaria.vl_limite);
+            gotoxy(32, 14);
+            printf("%9.2f",ContaBancaria.vl_limite+ContaBancaria.vl_saldo);
             getch();
-
+            //Cadastrar Movimentação Bancaria
+            movi.codigo_conta=ContaBancaria.codigo_conta;
+            strcpy(movi.dt_movimento,lerData(M));
         }
     }while(resp==1);
 }

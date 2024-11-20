@@ -100,7 +100,9 @@ void consultar_ordem_numerica(tipolista *l);
 // Função que cria a tela para o cadastro de novas movimentações
 void tela_movi();
 // função que ira cadastrar um novo movimento bancario
-void cadastro_movi(tipolista *l);
+void cadastro_movi(tipolista *l,tipolista_movi *M);
 // Função que permite que mostre as funções em ordem alfabetica
 void ordem_alfabetica(tipolista *l);
+//função para ler uma data e verificar a validade
+char *lerData(tipolista_movi *M);
 #endif
