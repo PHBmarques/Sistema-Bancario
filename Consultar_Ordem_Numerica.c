@@ -74,9 +74,9 @@ void consultar_ordem_numerica(tipolista *l)
             printf("Cartao credito");
         }
         gotoxy(50, linha);
-        printf("%.2lf", p->conteudo.vl_saldo);
+        printf("R$ %.2lf", p->conteudo.vl_saldo);
         gotoxy(65, linha);
-        printf("%.2lf", p->conteudo.vl_limite);
+        printf("R$ %.2lf", p->conteudo.vl_limite);
         gotoxy(76, linha);
         printf("%s", p->conteudo.status);
         linha++;

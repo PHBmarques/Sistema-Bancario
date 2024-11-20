@@ -87,7 +87,7 @@ void Consulta_por_Codigo(tipolista *l);
 void gotoxy(int x, int y);
 // Função que ira criar a tela principal do programa
 void tela();
-// Função que ira cirar a tela para inserir os dados necessarios
+// Função que ira criar a tela para inserir os dados necessarios
 void telacadastro();
 // Funcao que ira gravar os dados em um arquivo apos sair do código
 void gravar_dados(tipolista *l);
@@ -105,4 +105,8 @@ void cadastro_movi(tipolista *l,tipolista_movi *M);
 void ordem_alfabetica(tipolista *l);
 //função para ler uma data e verificar a validade
 char *lerData(tipolista_movi *M);
+// Função que ira criar a tela de tranferencia de contas
+void tela_transferencia_contas();
+// Função que ira criar a tela de consultar contas
+void tala_consultar();
 #endif
