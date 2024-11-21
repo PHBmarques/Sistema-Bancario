@@ -43,6 +43,7 @@ typedef struct
     char to_movimento[15];
     double vl_movimento;
     double vl_saldo;
+    char ds_favorecido[20];
 } movimento;
 typedef struct tipoitem_movi *tipoapontador_movi;
 typedef struct tipoitem_movi
@@ -109,4 +110,10 @@ char *lerData(tipolista_movi *M);
 void tela_transferencia_contas();
 // Função que ira criar a tela de consultar contas
 void tala_consultar();
+//Função para ler o tipo de movimentação da conta
+char *ler_tipo_movimento();
+//Função que le a movimentação do favorecido
+char *ler_movi_favorecido();
+//Função que ira ler o valor solicitado e verificar se ele não ultrapassa o saldo
+double ler_valor(double saldo, double limite);
 #endif

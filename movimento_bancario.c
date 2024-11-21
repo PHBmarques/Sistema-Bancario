@@ -58,6 +58,16 @@ void cadastro_movi(tipolista*l, tipolista_movi *M){
             //Cadastrar Movimentação Bancaria
             movi.codigo_conta=ContaBancaria.codigo_conta;
             strcpy(movi.dt_movimento,lerData(M));
+            strcpy(movi.to_movimento,ler_tipo_movimento());
+            strcpy(movi.ds_favorecido,ler_movi_favorecido());
+            movi.vl_movimento=ler_valor(ContaBancaria.vl_saldo,ContaBancaria.vl_limite);
+            if(strcmp(movi.to_movimento, "Debito")==0){
+                movi.vl_saldo=ContaBancaria.vl_saldo-movi.vl_movimento;
+                movi.vl_saldo=ContaBancaria.vl_saldo-movi.vl_movimento;
+            }else if(strcmp(movi.to_movimento, "Credito")==0){
+                movi.vl_saldo=ContaBancaria.vl_saldo+movi.vl_movimento;
+                movi.vl_saldo=ContaBancaria.vl_saldo+movi.vl_movimento;
+            }
         }
     }while(resp==1);
 }
