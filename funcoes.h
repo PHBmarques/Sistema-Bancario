@@ -109,11 +109,13 @@ char *lerData(tipolista_movi *M);
 // Função que ira criar a tela de tranferencia de contas
 void tela_transferencia_contas();
 // Função que ira criar a tela de consultar contas
-void tala_consultar();
+void tela_consultar_mov();
 //Função para ler o tipo de movimentação da conta
 char *ler_tipo_movimento();
 //Função que le a movimentação do favorecido
 char *ler_movi_favorecido();
 //Função que ira ler o valor solicitado e verificar se ele não ultrapassa o saldo
 double ler_valor(double saldo, double limite);
+
+void consultar_mov(tipolista *l);
 #endif

@@ -90,6 +90,11 @@ void Movimentacao(tipolista *l)
             case 1:
             cadastro_movi(l, &M);
             break;
+            case 2:
+            break;
+            case 3:
+            consultar_mov(l);
+            break;
         }
     } while (opc != 4);
 }
