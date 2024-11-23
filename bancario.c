@@ -24,6 +24,8 @@ int main()
     int opc = 0;
     tipolista l;
     tipolista_movi M;
+    M.primeiro=NULL;
+    M.ultimo=NULL;
     l.primeiro = NULL;
     l.ultimo = NULL;
     do
@@ -49,7 +51,7 @@ int main()
             cadastrar(&l);
             break;
         case 2:
-            Movimentacao(&l);
+            Movimentacao(&l,&M);
             break;
         }
 

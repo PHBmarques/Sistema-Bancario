@@ -66,21 +66,19 @@ void cadastrar(tipolista *l)
     } while (opc != 9);
 }
 //Menu de movimentacao financeira
-void Movimentacao(tipolista *l)
-{
+void Movimentacao(tipolista *l,tipolista_movi *M){
     int opc = 0;
-    tipolista_movi M;
     do
     {
         tela();
         gotoxy(24, 03);
         printf("MOVIMENTACAO FINANCEIRA");
         gotoxy(30, 10);
-        printf("1-Registrar Entrada");
+        printf("1-Movimentacao de Debito e Credito");
         gotoxy(30, 12);
-        printf("2-Registrar Saida");
+        printf("2-Transferencia entre contas Bancarias");
         gotoxy(30, 14);
-        printf("3-Consultar Movimentacao");
+        printf("3-Consultar de Movimentacao");
         gotoxy(30, 16);
         printf("4-Voltar");
         gotoxy(7, 24);
@@ -88,7 +86,7 @@ void Movimentacao(tipolista *l)
         scanf("%d", &opc);
         switch(opc){
             case 1:
-            cadastro_movi(l, &M);
+            cadastro_movi(l, M);
             break;
             case 2:
             break;

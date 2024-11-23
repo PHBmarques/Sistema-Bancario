@@ -60,7 +60,7 @@ typedef struct
 
 tipoapontador pesquisa(tipolista *L, int cod);
 // Menu da movimentação financeira
-void Movimentacao(tipolista *l);
+void Movimentacao(tipolista *l, tipolista_movi *M);
 // Menu de cadastro de Contas
 void cadastrar(tipolista *l);
 // Função que ira contar quantos elementos já foram cadastrados na lista
@@ -105,7 +105,7 @@ void cadastro_movi(tipolista *l,tipolista_movi *M);
 // Função que permite que mostre as funções em ordem alfabetica
 void ordem_alfabetica(tipolista *l);
 //função para ler uma data e verificar a validade
-char *lerData(tipolista_movi *M);
+char *lerData(int codigo_conta);
 // Função que ira criar a tela de tranferencia de contas
 void tela_transferencia_contas();
 // Função que ira criar a tela de consultar contas
@@ -116,6 +116,6 @@ char *ler_tipo_movimento();
 char *ler_movi_favorecido();
 //Função que ira ler o valor solicitado e verificar se ele não ultrapassa o saldo
 double ler_valor(double saldo, double limite);
-
+//Função para Consultar as movimentações Bancaria de uma Conta
 void consultar_mov(tipolista *l);
 #endif
