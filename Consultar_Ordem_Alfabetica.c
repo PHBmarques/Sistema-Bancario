@@ -81,7 +81,10 @@ void ordem_alfabetica(tipolista *l)
         printf("%s", p->conteudo.status);
         linha++;
         p = p->proximo; // avança para o proximo nó
-    } while (p != NULL);
+
+        gotoxy(50, 6);
+        printf("Saldo Total: ");
+    } while (p != NULL); // O loop continua até que não haja mais contas para exibir (quando p é NULL)
     gotoxy(7, 24);
     printf("Pressione qualquer tecla para continuar...");
     getch();

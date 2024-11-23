@@ -8,9 +8,10 @@ Obj:Tela de consulta casdastro em ordem de codigo
 
 #include "funcoes.h"
 
-void tela_consultar_ordem_numerica(){
-    
-    gotoxy(20,03);
+void tela_consultar_ordem_numerica()
+{
+
+    gotoxy(20, 3);
     printf("CONSULTAR CONTAS BANCARIAS");
 
     gotoxy(2, 6);
@@ -39,5 +40,4 @@ void tela_consultar_ordem_numerica(){
 
     gotoxy(1, 7);
     printf("+-----------------------------------------------------------------------------+");
-
 }
