@@ -11,6 +11,8 @@ void ordem_alfabetica(tipolista *l)
 {
     tipoapontador p;
     infocontas ContaBancaria;
+    double soma_saldo = 0;
+    double soma_limite = 0;
     int linha = 8;
     int troca;
     tipoapontador x;
@@ -25,7 +27,7 @@ void ordem_alfabetica(tipolista *l)
         p = l->primeiro; // apontar para o primeiro codigo da lista
         while (p == NULL && p->proximo != NULL)
         {
-            if (strcmp(p->conteudo.numero_conta, p->proximo->conteudo.numero_conta) > 0)
+            if (strcmp(p->conteudo.banco, p->proximo->conteudo.banco) > 0)
             {
                 // troca o conteudo entre p e p de proximo
                 x = p->proximo;
@@ -79,12 +81,19 @@ void ordem_alfabetica(tipolista *l)
         printf("%.2lf", p->conteudo.vl_limite);
         gotoxy(76, linha);
         printf("%s", p->conteudo.status);
+        soma_saldo += p->conteudo.vl_saldo;
+        soma_limite += p->conteudo.vl_limite;
         linha++;
         p = p->proximo; // avança para o proximo nó
-
-        gotoxy(50, 6);
-        printf("Saldo Total: ");
     } while (p != NULL); // O loop continua até que não haja mais contas para exibir (quando p é NULL)
+    gotoxy(42,linha);
+    printf("+-----------------------------------+");
+    gotoxy(42, linha+1);
+    printf("total:");
+    gotoxy(48,linha+1);
+    printf("%9.2f",soma_saldo);
+    gotoxy(63,linha+1);
+    printf("%9.2f",soma_limite);
     gotoxy(7, 24);
     printf("Pressione qualquer tecla para continuar...");
     getch();

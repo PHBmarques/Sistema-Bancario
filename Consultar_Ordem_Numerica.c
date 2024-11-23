@@ -14,6 +14,8 @@ void consultar_ordem_numerica(tipolista *l)
     tela_consultar_ordem_numerica();
     tipoapontador p;
     infocontas ContaBancaria;
+    double soma_saldo;
+    double soma_limite;
     int linha = 8;
     int troca;
     tipoapontador x;
@@ -21,8 +23,8 @@ void consultar_ordem_numerica(tipolista *l)
     p = l->primeiro;
     while (troca) // Serve para trocar o codigo de posição(indicação)
     {
-        troca = 0; // Esta marcando que não ouve troca
-        p = l->primeiro; // apontar para o primeiro codigo da lista 
+        troca = 0;       // Esta marcando que não ouve troca
+        p = l->primeiro; // apontar para o primeiro codigo da lista
         while (p != NULL && p->proximo != NULL)
         {
             if (p->conteudo.codigo_conta > p->proximo->conteudo.codigo_conta)
@@ -79,9 +81,19 @@ void consultar_ordem_numerica(tipolista *l)
         printf("R$ %.2lf", p->conteudo.vl_limite);
         gotoxy(76, linha);
         printf("%s", p->conteudo.status);
+        soma_saldo += p->conteudo.vl_saldo;
+        soma_limite += p->conteudo.vl_limite;
         linha++;
         p = p->proximo; // avança para o proximo nó
     } while (p != NULL);
+    gotoxy(42,linha);
+    printf("+-----------------------------------+");
+    gotoxy(42, linha+1);
+    printf("total:");
+    gotoxy(48,linha+1);
+    printf("%9.2f",soma_saldo);
+    gotoxy(63,linha+1);
+    printf("%9.2f",soma_limite);
     gotoxy(7, 24);
     printf("Pressione qualquer tecla para continuar...");
     getch();
