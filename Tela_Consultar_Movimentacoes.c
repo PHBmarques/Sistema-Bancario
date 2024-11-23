@@ -8,7 +8,7 @@ Obj:Tela padrão de consultar transferencias de contas
 
 #include "funcoes.h"
 
-void tala_consultar()
+void tela_consultar_mov()
 {
     gotoxy(20, 3);
     printf("LISTA DE MOVIMENTACOES BANCARIAS");
