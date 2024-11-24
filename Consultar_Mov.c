@@ -7,11 +7,13 @@ Obj:
 */
 #include "funcoes.h"
 
-void consultar_mov(tipolista *l)
+void consultar_mov(tipolista *l, tipolista_movi *M)
 {
     tipoapontador aux2;
+    tipoapontador_movi aux3;
     infocontas ContaBancaria;
-    infocontas movimento;
+    movimento mov;
+    int linha = 10;
     int resp;
     int opc;
     int numero = 1;
@@ -68,14 +70,32 @@ void consultar_mov(tipolista *l)
                 gotoxy(67, 6);
                 printf("Cartao credito");
             }
-
-            while (aux2 == 0 && ContaBancaria.codigo_conta != 0)
+            aux3 = M->primeiro;
+            while (aux3 != NULL)
             {
-                /* code */
+                // Verifica se a movimentação pertence à conta pesquisada
+                if (aux3->conteudo.codigo_conta == ContaBancaria.codigo_conta)
+                {
+                    gotoxy(2, linha);
+                    printf("%s", aux3->conteudo.dt_movimento);
+
+                    gotoxy(13, linha);
+                    printf("%s", aux3->conteudo.ds_favorecido);
+
+                    gotoxy(40, linha);
+                    printf("%s", aux3->conteudo.to_movimento);
+
+                    gotoxy(55, linha);
+                    printf("%9.2f", aux3->conteudo.vl_movimento);
+
+                    gotoxy(70, linha);
+                    printf("%9.2f", aux3->conteudo.vl_saldo);
+
+                    linha ++; // Incrementa a linha para a próxima exibição
+                }
+
+                aux3 = aux3->proximo; // Move para a próxima movimentação
             }
-            
-            
-            
             gotoxy(7, 24);
             printf("Deseja consultar outro Cadastro? (1-SIM/2-NAO)");
             scanf("%d", &resp);

@@ -101,21 +101,21 @@ void consultar_ordem_numerica(tipolista *l);
 // Função que cria a tela para o cadastro de novas movimentações
 void tela_movi();
 // função que ira cadastrar um novo movimento bancario
-void cadastro_movi(tipolista *l,tipolista_movi *M);
+void cadastro_movi(tipolista *l, tipolista_movi *M);
 // Função que permite que mostre as funções em ordem alfabetica
 void ordem_alfabetica(tipolista *l);
-//função para ler uma data e verificar a validade
+// função para ler uma data e verificar a validade
 char *lerData(int codigo_conta);
 // Função que ira criar a tela de tranferencia de contas
 void tela_transferencia_contas();
 // Função que ira criar a tela de consultar contas
 void tela_consultar_mov();
-//Função para ler o tipo de movimentação da conta
+// Função para ler o tipo de movimentação da conta
 char *ler_tipo_movimento();
-//Função que le a movimentação do favorecido
+// Função que le a movimentação do favorecido
 char *ler_movi_favorecido();
-//Função que ira ler o valor solicitado e verificar se ele não ultrapassa o saldo
+// Função que ira ler o valor solicitado e verificar se ele não ultrapassa o saldo
 double ler_valor(double saldo, double limite);
-//Função para Consultar as movimentações Bancaria de uma Conta
-void consultar_mov(tipolista *l);
+// Função para Consultar as movimentações Bancaria de uma Conta
+void consultar_mov(tipolista *l, tipolista_movi * M);
 #endif

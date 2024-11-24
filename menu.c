@@ -91,7 +91,7 @@ void Movimentacao(tipolista *l,tipolista_movi *M){
             case 2:
             break;
             case 3:
-            consultar_mov(l);
+            consultar_mov(l, M);
             break;
         }
     } while (opc != 4);
