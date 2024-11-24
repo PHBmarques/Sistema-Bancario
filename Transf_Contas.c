@@ -136,13 +136,13 @@ int Trans_Conta(tipolista *l, tipolista_movi *M)
         fflush(stdin);
         fgets(conta.dt_movimento, 11, stdin);
 
-        if (!validarECompararComLista(conta.dt_movimento, M))
+        if (!lerData(conta2.codigo_conta))
         {
             gotoxy(8, 23);
             printf("Data invalida. Tente novamente.");
             getch();
         }
-    } while (!validarECompararComLista(conta.dt_movimento, M));
+    } while (!lerData(conta2.codigo_conta));
 
     aux->conteudo.vl_saldo -= conta.vl_movimento;
     aux2->conteudo.vl_saldo += conta.vl_movimento;

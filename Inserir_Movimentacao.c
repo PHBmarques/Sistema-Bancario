@@ -3,8 +3,6 @@
 void inserirMovim(tipolista_movi *l, movimento cont)
 {
     tipoapontador_movi p;
-    tipoapontador_movi f;
-    tipoapontador_movi F;
 
    
     cont.dt_movimento[strcspn(cont.dt_movimento, "\n")] = '\0';

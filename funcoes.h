@@ -123,5 +123,6 @@ void inserirMovim(tipolista_movi *l, movimento cont);
 
 int Trans_Conta(tipolista *l, tipolista_movi *M);
 
-int validarECompararComLista(const char * DataparaNumero, tipolista_movi *M);
+void ler_dados_movi(tipolista_movi *M);
+void gravar_movimento(tipolista_movi *M);
 #endif

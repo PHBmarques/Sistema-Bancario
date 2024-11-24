@@ -32,6 +32,7 @@ int main()
     {
         tela();
         ler_dados(&l);
+        ler_dados_movi(&M);
         gotoxy(7,24);
         printf("                                            ");
         gotoxy(28, 03);
@@ -57,4 +58,5 @@ int main()
 
     } while (opc != 3);
     gravar_dados(&l);
+    gravar_movimento(&M);
 }
