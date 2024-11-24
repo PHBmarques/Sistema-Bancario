@@ -89,6 +89,7 @@ void Movimentacao(tipolista *l,tipolista_movi *M){
             cadastro_movi(l, M);
             break;
             case 2:
+            Trans_Conta(l, M);
             break;
             case 3:
             consultar_mov(l, M);

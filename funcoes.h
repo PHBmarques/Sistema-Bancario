@@ -43,7 +43,7 @@ typedef struct
     char to_movimento[15];
     double vl_movimento;
     double vl_saldo;
-    char ds_favorecido[20];
+    char ds_favorecido[50];
 } movimento;
 typedef struct tipoitem_movi *tipoapontador_movi;
 typedef struct tipoitem_movi
@@ -118,4 +118,10 @@ char *ler_movi_favorecido();
 double ler_valor(double saldo, double limite);
 // Função para Consultar as movimentações Bancaria de uma Conta
 void consultar_mov(tipolista *l, tipolista_movi * M);
+
+void inserirMovim(tipolista_movi *l, movimento cont);
+
+int Trans_Conta(tipolista *l, tipolista_movi *M);
+
+int validarECompararComLista(const char * DataparaNumero, tipolista_movi *M);
 #endif

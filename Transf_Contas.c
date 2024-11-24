@@ -8,15 +8,15 @@ Obj:Transferencia entre contas de movimento
 
 #include "Funcoes.h"
 
-int Trans_Conta(tipolista_movi *m, tipolista *l)
+int Trans_Conta(tipolista *l, tipolista_movi *M)
 {
     int codigo;
     int codigo2;
     int teste;
     tipoapontador aux;
     tipoapontador aux2;
-    reg_movimentos cont;
-    reg_movimentos cont2;
+    movimento conta;
+    movimento conta2;
 
     if (l->primeiro == NULL)
     {
@@ -39,7 +39,7 @@ int Trans_Conta(tipolista_movi *m, tipolista *l)
     {
 
         gotoxy(8, 23);
-        printf("Deseja realmente sair (Sim = 1/Nao = 2): ");
+        printf("Deseja realmente sair (1 = SIM / 2 = NAO): ");
         scanf("%d", &teste);
         gotoxy(8, 23);
         printf("                                            ");
@@ -117,9 +117,9 @@ int Trans_Conta(tipolista_movi *m, tipolista *l)
 
     gotoxy(52, 18);
     printf("");
-    scanf("%f", &cont.vl_movimento);
+    scanf("%f", &conta.vl_movimento);
 
-    if (cont.vl_movimento <= 0 || cont.vl_movimento > (aux->conteudo.vl_saldo + aux->conteudo.vl_limite))
+    if (conta.vl_movimento <= 0 || conta.vl_movimento > (aux->conteudo.vl_saldo + aux->conteudo.vl_limite))
     {
         gotoxy(8, 23);
         printf("Saldo insuficiente para realizar a transferencia");
@@ -134,18 +134,18 @@ int Trans_Conta(tipolista_movi *m, tipolista *l)
         gotoxy(52, 19);
         getchar();
         fflush(stdin);
-        fgets(cont.dt_movimento, 11, stdin);
+        fgets(conta.dt_movimento, 11, stdin);
 
-        if (!validarECompararComLista(cont.dt_movimento, m))
+        if (!validarECompararComLista(conta.dt_movimento, M))
         {
             gotoxy(8, 23);
             printf("Data invalida. Tente novamente.");
             getch();
         }
-    } while (!validarECompararComLista(cont.dt_movimento, m));
+    } while (!validarECompararComLista(conta.dt_movimento, M));
 
-    aux->conteudo.vl_saldo -= cont.vl_movimento;
-    aux2->conteudo.vl_saldo += cont.vl_movimento;
+    aux->conteudo.vl_saldo -= conta.vl_movimento;
+    aux2->conteudo.vl_saldo += conta.vl_movimento;
 
     gotoxy(26, 14);
     printf("%.2lf", aux->conteudo.vl_saldo);
@@ -154,48 +154,48 @@ int Trans_Conta(tipolista_movi *m, tipolista *l)
     printf("%.2lf", aux2->conteudo.vl_saldo);
 
     gotoxy(8, 23);
-    printf("Transferencia realizada com sucesso em %s", cont.dt_movimento);
+    printf("Transferencia realizada com sucesso em %s", conta.dt_movimento);
     getch();
 
-    cont.codigo_conta = codigo;
-    strcpy(cont.ds_favorecido, "Transferencia Entre Contas");
+    conta.codigo_conta = codigo;
+    strcpy(conta.ds_favorecido, "Transferencia Entre Contas");
 
-    if (m->ultimo == NULL)
+    if (M->ultimo == NULL)
     {
-        cont.sequencial = 1;
+        conta.sequencial = 1;
     }
     else
     {
-        cont.sequencial = m->ultimo->conteudo.sequencial + 1;
+        conta.sequencial = M->ultimo->conteudo.sequencial + 1;
     }
 
-    strcpy(cont.tp_movimento, "Debito");
+    strcpy(conta.to_movimento, "Debito");
 
-    cont.vl_saldo = aux->conteudo.vl_saldo;
+    conta.vl_saldo = aux->conteudo.vl_saldo;
 
-    inserirMovim(m, cont);
+    inserirMovim(M, conta);
 
-    cont2.codigo_conta = codigo2;
-    strcpy(cont2.ds_favorecido, "Transferencia Entre Contas");
+    conta2.codigo_conta = codigo2;
+    strcpy(conta2.ds_favorecido, "Transferencia Entre Contas");
 
-    if (m->ultimo == NULL)
+    if (M->ultimo == NULL)
     {
-        cont2.sequencial = 1;
+        conta2.sequencial = 1;
     }
     else
     {
-        cont2.sequencial = m->ultimo->conteudo.sequencial + 1;
+        conta2.sequencial = M->ultimo->conteudo.sequencial + 1;
     }
 
-    strcpy(cont2.tp_movimento, "Credito");
+    strcpy(conta2.to_movimento, "Credito");
 
-    cont2.vl_saldo = aux2->conteudo.vl_saldo;
+    conta2.vl_saldo = aux2->conteudo.vl_saldo;
 
-    strcpy(cont2.dt_movimento, cont.dt_movimento);
+    strcpy(conta2.dt_movimento, conta.dt_movimento);
 
-    cont2.vl_movimento = cont.vl_movimento;
+    conta2.vl_movimento = conta.vl_movimento;
 
-    inserirMovim(m, cont2);
+    inserirMovim(M, conta2);
 
     return 1;
 }
