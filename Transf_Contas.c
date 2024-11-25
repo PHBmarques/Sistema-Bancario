@@ -20,7 +20,7 @@ int Trans_Conta(tipolista *l, tipolista_movi *M)
 
     if (l->primeiro == NULL)
     {
-        gotoxy(8, 23);
+        gotoxy(8, 24);
         printf("Nenhuma conta encontrada para efetuar a transferencia");
         getch();
         return 0;
@@ -29,21 +29,21 @@ int Trans_Conta(tipolista *l, tipolista_movi *M)
     tela();
     tela_transferencia_contas();
 
-    gotoxy(8, 23);
+    gotoxy(8, 24);
     printf("Digite \"0\" para sair");
 
-    gotoxy(26, 7);
+    gotoxy(19, 8);
     scanf("%d", &codigo);
 
     if (codigo == 0)
     {
 
-        gotoxy(8, 23);
+        gotoxy(8, 24);
         printf("Deseja realmente sair (1 = SIM / 2 = NAO): ");
         scanf("%d", &teste);
-        gotoxy(8, 23);
+        gotoxy(8, 24);
         printf("                                            ");
-        gotoxy(8, 23);
+        gotoxy(8, 24);
 
         if (teste == 1)
         {
@@ -57,32 +57,32 @@ int Trans_Conta(tipolista *l, tipolista_movi *M)
     {
         if (aux == NULL)
         {
-            gotoxy(8, 23);
+            gotoxy(8, 24);
             printf("Conta nao encontrada ou inexistente");
             getch();
         }
         else if (strcmp(aux->conteudo.status, "Inativa") == 0)
         {
-            gotoxy(8, 23);
+            gotoxy(8, 24);
             printf("Conta inativa");
             getch();
         }
     } while (aux == NULL || strcmp(aux->conteudo.status, "Inativa") == 0);
 
-    gotoxy(26, 8);
+    gotoxy(19, 9);
     printf("%s", aux->conteudo.banco);
-    gotoxy(26, 9);
+    gotoxy(19, 10);
     printf("%s", aux->conteudo.agencia);
-    gotoxy(26, 10);
+    gotoxy(19, 11);
     printf("%s", aux->conteudo.tipo_conta);
-    gotoxy(26, 11);
+    gotoxy(19, 12);
     printf("%.2lf", aux->conteudo.vl_saldo);
-    gotoxy(26, 12);
+    gotoxy(19, 13);
     printf("%.2lf", aux->conteudo.vl_limite);
-    gotoxy(26, 13);
+    gotoxy(19, 14);
     printf("%.2lf", aux->conteudo.vl_saldo + aux->conteudo.vl_limite);
 
-    gotoxy(66, 7);
+    gotoxy(56, 8);
     scanf("%d", &codigo2);
     aux2 = pesquisa(l, codigo2);
 
@@ -90,38 +90,38 @@ int Trans_Conta(tipolista *l, tipolista_movi *M)
     {
         if (aux2 == NULL)
         {
-            gotoxy(8, 23);
+            gotoxy(8, 24);
             printf("Conta nao encontrada ou inexistente");
             getch();
         }
         else if (strcmp(aux2->conteudo.status, "Inativa") == 0)
         {
-            gotoxy(8, 23);
+            gotoxy(8, 24);
             printf("Conta inativa");
             getch();
         }
     } while (aux2 == NULL || strcmp(aux2->conteudo.status, "Inativa") == 0);
 
-    gotoxy(66, 8);
+    gotoxy(56, 9);
     printf("%s", aux2->conteudo.banco);
-    gotoxy(66, 9);
+    gotoxy(56, 10);
     printf("%s", aux2->conteudo.agencia);
-    gotoxy(66, 10);
+    gotoxy(56, 11);
     printf("%s", aux2->conteudo.tipo_conta);
-    gotoxy(66, 11);
+    gotoxy(56, 12);
     printf("%.2lf", aux2->conteudo.vl_saldo);
-    gotoxy(66, 12);
+    gotoxy(56, 13);
     printf("%.2lf", aux2->conteudo.vl_limite);
-    gotoxy(66, 13);
+    gotoxy(56, 14);
     printf("%.2lf", aux2->conteudo.vl_saldo + aux2->conteudo.vl_limite);
 
-    gotoxy(52, 18);
+    gotoxy(44, 19);
     printf("");
     scanf("%f", &conta.vl_movimento);
 
     if (conta.vl_movimento <= 0 || conta.vl_movimento > (aux->conteudo.vl_saldo + aux->conteudo.vl_limite))
     {
-        gotoxy(8, 23);
+        gotoxy(8, 24);
         printf("Saldo insuficiente para realizar a transferencia");
         getch();
         return 0;
@@ -129,16 +129,14 @@ int Trans_Conta(tipolista *l, tipolista_movi *M)
 
     do
     {
-        gotoxy(52, 19);
-        printf("                  ");
-        gotoxy(52, 19);
+        gotoxy(44, 20);
         getchar();
         fflush(stdin);
         fgets(conta.dt_movimento, 11, stdin);
 
         if (!lerData(conta2.codigo_conta))
         {
-            gotoxy(8, 23);
+            gotoxy(8, 24);
             printf("Data invalida. Tente novamente.");
             getch();
         }
@@ -147,13 +145,13 @@ int Trans_Conta(tipolista *l, tipolista_movi *M)
     aux->conteudo.vl_saldo -= conta.vl_movimento;
     aux2->conteudo.vl_saldo += conta.vl_movimento;
 
-    gotoxy(26, 14);
+    gotoxy(19, 15);
     printf("%.2lf", aux->conteudo.vl_saldo);
 
-    gotoxy(66, 14);
+    gotoxy(56, 15);
     printf("%.2lf", aux2->conteudo.vl_saldo);
 
-    gotoxy(8, 23);
+    gotoxy(8, 24);
     printf("Transferencia realizada com sucesso em %s", conta.dt_movimento);
     getch();
 

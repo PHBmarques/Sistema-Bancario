@@ -1,3 +1,11 @@
+/*
+Autor: Gustavo de Lima Sossai
+Data: 24/11/2024
+Equipe: RA: 173342-2024
+        RA: 179427-2024
+Obj:Função auxiliar da tela transferencia entre contas de movimento
+*/
+
 #include "Funcoes.h"
 
 void inserirMovim(tipolista_movi *l, movimento cont)
