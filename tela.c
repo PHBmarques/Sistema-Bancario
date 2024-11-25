@@ -57,5 +57,5 @@ void telacadastro()
     gotoxy(5, 19);
     printf("6-Limite Permitido............................:");
     gotoxy(5, 21);
-    printf("7-Status da Conta.............................:");
+    printf("  Status da Conta.............................:");
 }

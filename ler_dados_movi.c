@@ -20,7 +20,7 @@ void ler_dados_movi(tipolista_movi *M){
         p = (tipoapontador_movi)malloc(sizeof(tipoitem_movi));// Aloca memória para um novo nó
         if (p == NULL) {// Verifica se a alocação falhou
             gotoxy(7,24);
-            printf("Erro ao alocar memória para movimentação.\n");
+            printf("Erro ao alocar memória para movimentacao.\n");
             fclose(arq);
             return; // Sai da função se a alocação falhar
         }

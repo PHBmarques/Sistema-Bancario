@@ -43,7 +43,7 @@ char *lerData(int codigo_conta,int x,int y)
     while (1)
     {
         gotoxy(7, 24);
-        printf("Data de Movimento (DD/MM/AAAA): ");
+        printf("Data de Movimento (DD/MM/AAAA):  ");
         gotoxy(x, y);
         scanf("%s", data);
 
@@ -54,8 +54,10 @@ char *lerData(int codigo_conta,int x,int y)
             gotoxy(7, 24);
             printf("Formato invalido ou data invalida.");
             getch();
+            gotoxy(7,24);
+            printf("                                   ");
             gotoxy(x, y);
-            printf("               "); // Limpa a entrada anterior
+            printf("                   "); // Limpa a entrada anterior
             continue;                  // Continua o loop para solicitar uma nova data
         }
 
@@ -72,7 +74,7 @@ char *lerData(int codigo_conta,int x,int y)
         getch();
         gotoxy(7, 24);
         printf("                                                                 "); // Limpa a linha
-        gotoxy(33, 16);
+        gotoxy(x, y);
         printf("               "); // Limpa o campo da data
     }
 

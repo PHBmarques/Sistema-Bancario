@@ -14,7 +14,7 @@ void gravar_movimento(tipolista_movi *M) {
     arq = fopen("Movimento.dat", "wb"); // Abre/cria o arquivo binário
     if (arq == NULL) {
         gotoxy(7,24);
-        printf("Erro ao abrir arquivo de movimentações.\n");
+        printf("Erro ao abrir arquivo de movimentacoes.\n");
         getch();
         return;// Retorna da função, pois não foi possível abrir o arquivo.
     }
@@ -29,7 +29,7 @@ void gravar_movimento(tipolista_movi *M) {
     fclose(arq); // Fecha o arquivo
     //exibe uma mensagem de que o  movimentação foi salva com sucesso
     gotoxy(7, 24);
-    printf("Movimentações salvas com sucesso.\n");
+    printf("Movimentacoes salvas com sucesso.\n");
     getch();
 }
 

@@ -32,10 +32,10 @@ void cadastro_movi(tipolista *l, tipolista_movi *M)
         }
         gotoxy(33, 6);
         printf("%d", movi.sequencial);
-        gotoxy(7, 24);
         // Loop para verificar e solicitar código da conta bancária
         do
         {
+            gotoxy(7, 24);
             printf("Digite 0 para sair");
             gotoxy(33, 7);
             scanf("%d", &ContaBancaria.codigo_conta);
