@@ -18,7 +18,7 @@ double ler_valor(double saldo, double limite)
         scanf("%lf", &valor_solicitado); // Lê o valor solicitado.
 
         // Verifica se o valor solicitado é válido.
-        if (valor_solicitado > 0 && valor_solicitado <= max_disponivel)
+        if (valor_solicitado > 0 && valor_solicitado < max_disponivel)
         {
             break; // Valor válido, sai do loop.
         }
