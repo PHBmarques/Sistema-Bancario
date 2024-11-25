@@ -58,7 +58,7 @@ void consultar_cadastro(tipolista *l)
             gotoxy(52, 19);
             printf("%.2lf", p->conteudo.vl_limite);
             gotoxy(52, 21);
-            printf("%s", p->conteudo.status);
+            printf("%d", p->conteudo.status);
             gotoxy(7, 24);
             printf("Pressione qualquer botao para continuar");
             getch();

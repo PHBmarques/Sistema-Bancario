@@ -9,13 +9,13 @@ Obj:Permite o cadastro dos dados em uma determinada posicao
 void casdastrar_posicao(tipolista *l)
 {
     int resp = 0;
-    infocontas ContaBancaria;
-    tipoapontador p;
-    tipoapontador aux;
-    tipoapontador r;
-    int pos;
-    int x;
-    int qtde;
+    infocontas ContaBancaria;// Estrutura que armazenará os dados de uma conta bancária
+    tipoapontador p;// Ponteiro para um item da lista
+    tipoapontador aux; // Ponteiro auxiliar para verificar se a conta já está cadastrada
+    tipoapontador r;  // Ponteiro para o novo item a ser inserido
+    int pos;  // Variável para armazenar a posição onde o usuário deseja inserir a conta
+    int x;  // Variável de controle para percorrer a lista de contas
+    int qtde;  // Variável para armazenar a quantidade de contas cadastradas
     do
     {
         do
@@ -29,8 +29,8 @@ void casdastrar_posicao(tipolista *l)
             gotoxy(52, 7);
             scanf("%d", &ContaBancaria.codigo_conta);
             // limpa o buffer apos o uso do scanf
-            while (getchar() != '\n')
-                ;
+            while (getchar() != '\n');
+            // Verifica se já existe uma conta cadastrada com o mesmo código
             aux = pesquisa(l, ContaBancaria.codigo_conta);
             if (aux != NULL)
             {
@@ -38,9 +38,10 @@ void casdastrar_posicao(tipolista *l)
                 printf("Codigo ja cadastrado");
                 getch();
             }
-        } while (aux != NULL);
-        if (ContaBancaria.codigo_conta != 0)
+        } while (aux != NULL);//repete o loop até encontrar um código não cadastrado
+        if (ContaBancaria.codigo_conta != 0)// Se o código da conta for diferente de 0 
         {
+            // Coleta os dados da conta bancária
             gotoxy(52, 9);
             fflush(stdin);
             fgets(ContaBancaria.banco, 50, stdin);
@@ -52,10 +53,12 @@ void casdastrar_posicao(tipolista *l)
             fgets(ContaBancaria.numero_conta, 20, stdin);
             do
             {
+                //Pergunta qual tipo de conta sera cadastrada
                 gotoxy(07, 24);
                 printf("Utilizar: 1=Corrente/2=Poupanca/3=Cartao Credito");
                 gotoxy(52, 15);
                 fflush(stdin);
+                // Verifica qual tipo de conta foi escolhido
                 fgets(ContaBancaria.tipo_conta, 20, stdin);
                 if (ContaBancaria.tipo_conta[0] == '1')
                 {
@@ -72,6 +75,7 @@ void casdastrar_posicao(tipolista *l)
                     gotoxy(53, 15);
                     printf("-Cartao Credito");
                 }
+                //Caso insira um valor invalido uma mensagem de erro ira aparecer
                 else
                 {
                     gotoxy(7, 24);
@@ -82,7 +86,7 @@ void casdastrar_posicao(tipolista *l)
                     gotoxy(52, 15);
                     printf("  ");
                 }
-            } while (ContaBancaria.tipo_conta[0] != '1' && ContaBancaria.tipo_conta[0] != '2' && ContaBancaria.tipo_conta[0] != '3');
+            } while (ContaBancaria.tipo_conta[0] != '1' && ContaBancaria.tipo_conta[0] != '2' && ContaBancaria.tipo_conta[0] != '3');//ele ira repetir até que o valor seja valido
             gotoxy(7, 24);
             printf("                                                        ");
             gotoxy(52, 17);
@@ -90,15 +94,18 @@ void casdastrar_posicao(tipolista *l)
             gotoxy(52, 19);
             scanf("%lf", &ContaBancaria.vl_limite);
             gotoxy(52, 21);
-            fflush(stdin);
-            fgets(ContaBancaria.status, 10, stdin);
+            //Verifica se o status da conta é valido ou invalido
+            ContaBancaria.status = verificar_status(ContaBancaria);
+            gotoxy(52, 21);
+            printf("%d", ContaBancaria.status);
             gotoxy(7, 24);
-            // Ira perfuntar se o usuario deseja salvar esses dados ou não
+            // Ira perguntar se o usuario deseja salvar esses dados ou não
             printf("Deseja Salvar os dados(1-SIM/2-NAO):");
             scanf("%d", &resp);
 
             if (resp == 1)
             {
+                //ira perguntar em qual posição deseja inserir o dado escolhido
                 do
                 {
                     gotoxy(7, 24);

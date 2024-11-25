@@ -12,10 +12,9 @@ Obj: Cadastrar os dados no incio
 void cadastrofinal(tipolista *l)
 {
     int resp;
-    infocontas ContaBancaria;
-    tipoapontador p;
-    tipoapontador aux;
-    int opc;
+    infocontas ContaBancaria;// Estrutura que armazenará os dados de uma conta bancária
+    tipoapontador p;// Ponteiro para um item da lista
+    tipoapontador aux; // Ponteiro auxiliar para verificar se a conta já está cadastrada
     do
     {
         do
@@ -30,6 +29,7 @@ void cadastrofinal(tipolista *l)
             scanf("%d", &ContaBancaria.codigo_conta);
             // limpa o buffer apos o uso do scanf
             while (getchar() != '\n');
+            // Verifica se já existe uma conta cadastrada com o mesmo código
             aux = pesquisa(l, ContaBancaria.codigo_conta);
             if (aux != NULL)
             {
@@ -56,6 +56,7 @@ void cadastrofinal(tipolista *l)
                 gotoxy(52, 15);
                 fflush(stdin);
                 fgets(ContaBancaria.tipo_conta, 20, stdin);
+                //Ira verificar qual foi o tipo de conta desejada
                 if (ContaBancaria.tipo_conta[0] == '1')
                 {
                     gotoxy(53, 15);
@@ -81,18 +82,19 @@ void cadastrofinal(tipolista *l)
                     gotoxy(52, 15);
                     printf("  ");
                 }
-            } while (ContaBancaria.tipo_conta[0] != '1' && ContaBancaria.tipo_conta[0] != '2' && ContaBancaria.tipo_conta[0] != '3');
+            } while (ContaBancaria.tipo_conta[0] != '1' && ContaBancaria.tipo_conta[0] != '2' && ContaBancaria.tipo_conta[0] != '3');//ira repetir até voce digitar um tipo de conta valido
             gotoxy(7, 24);
             printf("                                                        ");
             gotoxy(52, 17);
             scanf("%lf", &ContaBancaria.vl_saldo);
             gotoxy(52, 19);
             scanf("%lf", &ContaBancaria.vl_limite);
+            //Ira verificar se a minha conta esta ativa ou inativa
+            ContaBancaria.status=verificar_status(ContaBancaria);
             gotoxy(52, 21);
-            fflush(stdin);
-            fgets(ContaBancaria.status, 10, stdin);
+            printf("%d",ContaBancaria.status);
             gotoxy(7, 24);
-            // Ira perfuntar se o usuario deseja salvar esses dados ou não
+            // Ira perguntar se o usuario deseja salvar esses dados ou não
             printf("Deseja Salvar os dados(1-SIM/2-NAO):");
             scanf("%d", &resp);
             // Se ele quiser salvar ele ira salvar os dados no final

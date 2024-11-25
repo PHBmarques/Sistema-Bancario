@@ -7,7 +7,7 @@ Obj: Menus de cadastro Bancario e Moviemntacao de Contas
 */
 #include "funcoes.h"
 //Menu de Cadastro de Contas
-void cadastrar(tipolista *l)
+void cadastrar(tipolista *l,tipolista_movi *M)
 {
     int opc = 0;
     do
@@ -48,13 +48,13 @@ void cadastrar(tipolista *l)
             casdastrar_posicao(l);
             break;
         case 4:
-            remover_final(l);
+            remover_final(l,M);
             break;
         case 5:
-            remover_inicio(l);
+            remover_inicio(l,M);
             break;
         case 6:
-            remover_posicao(l);
+            remover_posicao(l,M);
             break;
         case 7:
             alterar_conta_bancaria(l);

@@ -8,18 +8,16 @@ Obj: Cadastrar uma nova movimentação bancaria
 #include "funcoes.h"
 void cadastro_movi(tipolista *l, tipolista_movi *M)
 {
-    tipoapontador aux2;
-    movimento movi;
-    infocontas ContaBancaria;
-    tipoapontador p;
-    tipoapontador_movi q;
-    int resp;
-    int qtd;
-    int x;
+    tipoapontador aux2;             // Ponteiro auxiliar para encontrar a conta bancária
+    movimento movi;                 // Estrutura para armazenar informações da movimentação
+    infocontas ContaBancaria;       // Estrutura para armazenar informações da conta bancária
+    tipoapontador p;                // Ponteiro para navegação na lista de contas
+    tipoapontador_movi q;           // Ponteiro para criação de nova movimentação
+    int resp;                       // Variável para armazenar resposta do usuário
     do
     {
-        tela();
-        tela_movi();
+        tela();//função que chama a tela principal
+        tela_movi(); // Função para configurar a tela específica de movimentação
         gotoxy(20,03);
         printf("CADASTRAR MOVIMENTACOES BANCARIAS");
         //verifica se a lista esta vazia caso ela esteja vazia o contador sera igual a 1
@@ -35,12 +33,15 @@ void cadastro_movi(tipolista *l, tipolista_movi *M)
         gotoxy(33, 6);
         printf("%d", movi.sequencial);
         gotoxy(7, 24);
+        // Loop para verificar e solicitar código da conta bancária
         do
         {
             printf("Digite 0 para sair");
             gotoxy(33, 7);
             scanf("%d", &ContaBancaria.codigo_conta);
+            // Pesquisa na lista de contas pelo código fornecido
             aux2 = pesquisa(l, ContaBancaria.codigo_conta);
+            // Exibe erro se a conta não existir
             if (aux2 == NULL && ContaBancaria.codigo_conta != 0)
             {
                 gotoxy(7, 24);
@@ -48,9 +49,10 @@ void cadastro_movi(tipolista *l, tipolista_movi *M)
                 getch();
             }
         } while (aux2 == 0 && ContaBancaria.codigo_conta != 0);
+        // Caso o código fornecido não seja 0 (sair), processa a conta bancária
         if (ContaBancaria.codigo_conta != 0)
         {
-            ContaBancaria = aux2->conteudo;
+            ContaBancaria = aux2->conteudo;// Obtém os dados da conta bancária
             gotoxy(33, 8);
             printf("%s", ContaBancaria.banco);
             gotoxy(33, 9);
@@ -68,10 +70,12 @@ void cadastro_movi(tipolista *l, tipolista_movi *M)
             getch();
             // Cadastrar Movimentação Bancaria
             movi.codigo_conta = ContaBancaria.codigo_conta;
-            strcpy(movi.dt_movimento, lerData(movi.codigo_conta,33,16));
-            strcpy(movi.to_movimento, ler_tipo_movimento());
-            strcpy(movi.ds_favorecido, ler_movi_favorecido());
-            movi.vl_movimento = ler_valor(ContaBancaria.vl_saldo, ContaBancaria.vl_limite);
+            strcpy(movi.dt_movimento, lerData(movi.codigo_conta,33,16));// Lê a data da movimentação
+            strcpy(movi.to_movimento, ler_tipo_movimento()); // Lê o tipo de movimentação
+            strcpy(movi.ds_favorecido, ler_movi_favorecido());// Lê o favorecido da movimentação
+            movi.vl_movimento = ler_valor(ContaBancaria.vl_saldo, ContaBancaria.vl_limite);// Lê o valor da movimentação
+
+            // Atualiza o saldo dependendo do tipo de movimentação (débito ou crédito)
             if (strcmp(movi.to_movimento, "Debito") == 0)
             {
                 movi.vl_saldo = ContaBancaria.vl_saldo - movi.vl_movimento;
@@ -83,25 +87,27 @@ void cadastro_movi(tipolista *l, tipolista_movi *M)
                 movi.vl_saldo = ContaBancaria.vl_saldo + movi.vl_movimento;
             }
             gotoxy(33, 20);
-            printf("%9.2lf", movi.vl_saldo);
+            printf("%9.2lf", movi.vl_saldo);// Exibe o saldo atualizado
+            // Pergunta se o usuário deseja gravar a movimentação
             gotoxy(7, 24);
             printf("Deseja gravar a movimentacao(1-SIM/2-NAO):");
             scanf("%d", &resp);
             if (resp == 1)
             {
-                q = (tipoapontador_movi)malloc(sizeof(tipoitem_movi));
+                aux2->conteudo.vl_saldo=movi.vl_saldo;// Atualiza o saldo na conta bancária
+                q = (tipoapontador_movi)malloc(sizeof(tipoitem_movi));// Criação de um novo nó para a movimentação
                 q->conteudo = movi;
                 q->proximo = NULL;
                 q->anterior = NULL;
-                // adição no final
-                if (M->primeiro == NULL)
+                // Adiciona a movimentação na lista de movimentações
+                if (M->primeiro == NULL)// Caso a lista esteja vazia
                 {
                     M->primeiro = q;
                     M->ultimo = q;
                 }
                 else
                 {
-                    M->ultimo->proximo = q;
+                    M->ultimo->proximo = q;// Adiciona ao final da lista
                     q->anterior = M->ultimo;
                     M->ultimo = q;
                 }
@@ -110,8 +116,9 @@ void cadastro_movi(tipolista *l, tipolista_movi *M)
                 getch();
             }
         }
+        // Pergunta se o usuário deseja cadastrar outro movimento
         gotoxy(07, 24);
         printf("Gostaria de cadastrar um novo movimento(1-SIM/2-NAO):");
         scanf("%d", &resp);
-    } while (resp == 1);
+    } while (resp == 1);// Repete o processo caso o usuário deseje continuar
 }

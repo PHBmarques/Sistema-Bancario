@@ -9,15 +9,15 @@ Obj:Função de consulta casdastro em ordem alfabetica
 #include "funcoes.h"
 void ordem_alfabetica(tipolista *l)
 {
-    tipoapontador p;
-    infocontas ContaBancaria;
-    double soma_saldo = 0;
-    double soma_limite = 0;
-    int linha = 8;
-    int troca;
-    tipoapontador x;
-    tela();
-    tela_consultar_ordem_numerica();
+    tipoapontador p;              // Ponteiro para percorrer a lista
+    infocontas ContaBancaria;     // Estrutura para armazenar temporariamente dados da conta
+    double soma_saldo = 0;        // Variável para armazenar a soma dos saldos das contas
+    double soma_limite = 0;       // Variável para armazenar a soma dos limites das contas
+    int linha = 8;                // Linha inicial para exibição dos dados
+    int troca;                    // Indicador de troca no algoritmo de ordenação
+    tipoapontador x;              // Ponteiro auxiliar usado para a troca de nós
+    tela();                       // Exibe a interface padrão
+    tela_consultar_ordem_numerica(); // Exibe a tela de consulta de contas em ordem alfabética
 
     p = l->primeiro;
 
@@ -45,11 +45,12 @@ void ordem_alfabetica(tipolista *l)
         }
     }
     // exibe os dados rodenados
-    p = l->primeiro;
+    p = l->primeiro;// Reinicia o ponteiro para o início da lista
 
     do
 
     {
+        // Exibe as informações da conta na posição atual
         gotoxy(2, linha);
         printf("%d", p->conteudo.codigo_conta);
         gotoxy(6, linha);
@@ -58,6 +59,7 @@ void ordem_alfabetica(tipolista *l)
         printf("%s", p->conteudo.agencia);
         gotoxy(26, linha);
         printf("%s", p->conteudo.numero_conta);
+        // Determina o tipo de conta
         gotoxy(34, linha);
         printf("%s", p->conteudo.tipo_conta);
         if (p->conteudo.tipo_conta[0] == '1')
@@ -75,17 +77,20 @@ void ordem_alfabetica(tipolista *l)
             gotoxy(34, linha);
             printf("Cartao credito");
         }
+        // Exibe saldo, limite e status
         gotoxy(50, linha);
         printf("%.2lf", p->conteudo.vl_saldo);
         gotoxy(65, linha);
         printf("%.2lf", p->conteudo.vl_limite);
         gotoxy(76, linha);
-        printf("%s", p->conteudo.status);
+        printf("%d", p->conteudo.status);
+        // Acumula o saldo e limite para exibição ao final
         soma_saldo += p->conteudo.vl_saldo;
         soma_limite += p->conteudo.vl_limite;
-        linha++;
+        linha++;//incrementa a linha para a proxima conta
         p = p->proximo; // avança para o proximo nó
     } while (p != NULL); // O loop continua até que não haja mais contas para exibir (quando p é NULL)
+    //exibe o total de saldo e limite
     gotoxy(42,linha);
     printf("+-----------------------------------+");
     gotoxy(42, linha+1);

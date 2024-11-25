@@ -9,18 +9,19 @@ Obj:Função que permita que o usuario excluia um casdastro no final da lista
 #include "funcoes.h"
 
 // Criando a função remover final da lista
-void remover_final(tipolista *l)
+void remover_final(tipolista *l,tipolista_movi *M)
 {
-    tipoapontador p;
-    tipoapontador r;
-    int opc;
+    tipoapontador p;// Ponteiro para o último elemento da lista.
+    tipoapontador r;// Ponteiro auxiliar para o penúltimo elemento da lista.
+    int opc;        // Armazena a escolha do usuário sobre a remoção.
 
-    p = l->ultimo;
+    p = l->ultimo;// Inicializa o ponteiro com o último elemento da lista.
 
     tela();
     telacadastro();
     gotoxy(18, 03);
     printf("REMOCAO DE CONTAS BANCARIAS NO FINAL");
+    // Exibe os dados da conta bancária a ser removida.
     gotoxy(52, 7);
     printf("%d", p->conteudo.codigo_conta);
     gotoxy(52, 9);
@@ -31,6 +32,7 @@ void remover_final(tipolista *l)
     printf("%s", p->conteudo.numero_conta);
     gotoxy(52, 15);
     printf("%s", p->conteudo.tipo_conta);
+    // Identifica o tipo de conta bancária e exibe.
     if (p->conteudo.tipo_conta[0] == '1')
     {
         gotoxy(52, 15);
@@ -46,14 +48,21 @@ void remover_final(tipolista *l)
         gotoxy(52, 15);
         printf("Cartao credito");
     }
+    // Exibe saldo, limite e status da conta.
     gotoxy(52, 17);
     printf("%.2lf", p->conteudo.vl_saldo);
     gotoxy(52, 19);
     printf("%.2lf", p->conteudo.vl_limite);
     gotoxy(52, 21);
-    printf("%s", p->conteudo.status);
+    printf("%d", p->conteudo.status);
     gotoxy(7, 24);
-
+    // Verifica se a conta possui movimentações financeiras associadas.
+    if(verifica_movimento(M->primeiro,p->conteudo.codigo_conta)){
+        gotoxy(07,24);
+        printf("Nao e possivel remover a conta ela esta em movimentacao");
+        getch();
+        return;// Sai da função se a conta estiver em movimentação.
+    }
     gotoxy(7, 24);
     printf("Deseja realmente remover esse banco(1-SIM/2-NAO):");
     scanf("%d", &opc);
@@ -63,7 +72,7 @@ void remover_final(tipolista *l)
         // Verificando se a lista possui algum cadastro
         if (l->primeiro->proximo == NULL)
         {
-            free(l->primeiro);
+            free(l->primeiro);// Libera o espaço de memória da conta.
             l->primeiro = NULL;
             l->ultimo = NULL;
             gotoxy(7, 24);
@@ -89,10 +98,10 @@ void remover_final(tipolista *l)
             gotoxy(7, 24);
             printf("Cadastro removido com sucesso");
             getch();
-            // Quando encontrar o elemento da lista devera eliminar o espaço de memoria
-            free(p);
-            r->proximo = NULL;
-            l->ultimo = r;
+            // Remove o último elemento.
+            free(p);           // Libera o espaço de memória do último elemento.
+            r->proximo = NULL;// Atualiza o penúltimo elemento como último.
+            l->ultimo = r;   // Atualiza o ponteiro do último na lista.
         }
     }
 }

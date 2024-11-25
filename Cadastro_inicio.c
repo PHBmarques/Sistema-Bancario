@@ -9,9 +9,9 @@ Obj: Cadastrar os dados no incio
 void cadastrarinicio(tipolista *l)
 {
     int resp;
-    infocontas ContaBancaria;
-    tipoapontador p;
-    tipoapontador aux;
+    infocontas ContaBancaria;// Estrutura que armazenará os dados de uma conta bancária
+    tipoapontador p;// Ponteiro para um item da lista
+    tipoapontador aux; // Ponteiro auxiliar para verificar se a conta já está cadastrada
     do
     {
         do
@@ -26,6 +26,7 @@ void cadastrarinicio(tipolista *l)
             scanf("%d", &ContaBancaria.codigo_conta);
             // limpa o buffer apos o uso do scanf
             while (getchar() != '\n');
+            // Verifica se já existe uma conta cadastrada com o mesmo código
             aux = pesquisa(l, ContaBancaria.codigo_conta);
             if (aux != NULL)
             {
@@ -52,6 +53,7 @@ void cadastrarinicio(tipolista *l)
                 gotoxy(52, 15);
                 fflush(stdin);
                 fgets(ContaBancaria.tipo_conta, 20, stdin);
+                //Ira verificar qual foi o tipo de conta desejada
                 if (ContaBancaria.tipo_conta[0] == '1')
                 {
                     gotoxy(53, 15);
@@ -85,10 +87,12 @@ void cadastrarinicio(tipolista *l)
             gotoxy(52, 19);
             scanf("%lf", &ContaBancaria.vl_limite);
             gotoxy(52, 21);
-            fflush(stdin);
-            fgets(ContaBancaria.status, 10, stdin);
+            //Verifica se a conta está ativa ou inativa
+            ContaBancaria.status = verificar_status(ContaBancaria);
+            gotoxy(52, 21);
+            printf("%d", ContaBancaria.status);
             gotoxy(7, 24);
-            // Ira perfuntar se o usuario deseja salvar esses dados ou não
+            // Ira perguntar se o usuario deseja salvar esses dados ou não
             printf("Deseja Salvar os dados(1-SIM/2-NAO):");
             scanf("%d", &resp);
             // Caso ele deseje salvar os dados ira cadastralos no inicio do sistema
@@ -111,9 +115,10 @@ void cadastrarinicio(tipolista *l)
                 printf("Cadastro com Sucesso!                 ");
                 getch();
             }
+            //Pergunta se gostaria de cadastrar uma nova conta Bancaria no inicio
             gotoxy(7, 24);
             printf("Deseja cadastrar uma nova conta Bancaria (1=SIM / 2=NAO)? ");
             scanf("%d", &resp);
         }
-    } while (resp == 1);
+    } while (resp == 1);//Ira continuar o loop até a resposta for igual a 2
 }

@@ -11,6 +11,8 @@ Obj: funcoes utilizadas no programa
 #include <stdlib.h>
 #include <conio.h>
 #include <string.h>
+// Inclusão de bibliotecas padrão para entrada/saída, alocação dinâmica,
+// manipulação de strings e controle do console.
 typedef struct
 {
     int codigo_conta;
@@ -20,8 +22,10 @@ typedef struct
     char tipo_conta[20];
     double vl_saldo;
     double vl_limite;
-    char status[10];
+    int status;
 } infocontas;
+// Estrutura que representa uma conta bancária, com informações como código,
+// banco, agência, número, tipo de conta, saldo, limite e status (ativo/inativo).
 
 typedef struct tipoitem *tipoapontador;
 typedef struct tipoitem
@@ -29,11 +33,16 @@ typedef struct tipoitem
     infocontas conteudo;
     tipoapontador proximo;
 } tipoitem;
+// Estruturas para implementar uma lista encadeada de contas bancárias.
+// Cada item da lista contém uma conta e um ponteiro para o próximo item.
 typedef struct
 {
     tipoapontador primeiro;
     tipoapontador ultimo;
 } tipolista;
+// Estrutura que representa a lista de contas, contendo ponteiros para o 
+// primeiro e último elementos.
+
 // Funçoes da moviemtação da conta
 typedef struct
 {
@@ -45,6 +54,9 @@ typedef struct
     double vl_saldo;
     char ds_favorecido[50];
 } movimento;
+// Estrutura que representa uma movimentação bancária, com informações como
+// código, data, tipo de movimento (saque, depósito, transferência), valor, 
+// saldo após o movimento e favorecido.
 typedef struct tipoitem_movi *tipoapontador_movi;
 typedef struct tipoitem_movi
 {
@@ -52,17 +64,23 @@ typedef struct tipoitem_movi
     tipoapontador_movi proximo;
     tipoapontador_movi anterior;
 } tipoitem_movi;
+// Estruturas para implementar uma lista duplamente encadeada de movimentações 
+// bancárias.
 typedef struct
 {
     tipoapontador_movi primeiro;
     tipoapontador_movi ultimo;
 } tipolista_movi;
+// Estrutura que representa a lista de movimentações, com ponteiros para o
+// primeiro e último elementos.
 
+// Declaração de funções para manipular contas e movimentações bancárias.
+// Procura uma conta na lista com base no código.
 tipoapontador pesquisa(tipolista *L, int cod);
 // Menu da movimentação financeira
 void Movimentacao(tipolista *l, tipolista_movi *M);
 // Menu de cadastro de Contas
-void cadastrar(tipolista *l);
+void cadastrar(tipolista *l,tipolista_movi *M);
 // Função que ira contar quantos elementos já foram cadastrados na lista
 int contador(tipolista *l);
 // Permite o cadastro de uma conta no final da lista
@@ -76,11 +94,11 @@ void consultar_cadastro(tipolista *l);
 // Permite a alteração de informações da conta escolhida
 void alterar_conta_bancaria(tipolista *l);
 // Permite que o usuario possa remover o cadastro no incio da lista
-void remover_inicio(tipolista *l);
+void remover_inicio(tipolista *l,tipolista_movi *M);
 // Permite que o usuario possa remover o cadastro no final da lista
-void remover_final(tipolista *l);
+void remover_final(tipolista *l,tipolista_movi *M);
 // Permite que o usuario possa remover o cadastro no em qualquer lugar da lista
-void remover_posicao(tipolista *l);
+void remover_posicao(tipolista *l,tipolista_movi *M);
 // Sera as opções em que consultaremos as contas
 void opcoes_de_consultar(tipolista *l);
 // sera usado para consultar uma conta bancaria especifica pelo código
@@ -118,11 +136,14 @@ char *ler_movi_favorecido();
 double ler_valor(double saldo, double limite);
 // Função para Consultar as movimentações Bancaria de uma Conta
 void consultar_mov(tipolista *l, tipolista_movi * M);
-
-void inserirMovim(tipolista_movi *l, movimento cont);
-
-int Trans_Conta(tipolista *l, tipolista_movi *M);
-
+//Verifica se a conta esta em movimentação
+int verifica_movimento(tipoapontador_movi M, int cod);
+//verifica se a conta esta ativa=1 ou inativa=0
+int verificar_status( infocontas ContaBAncaria);
+//Função que ira permitir fazer a transferencia entre contas
+void Trans_Conta(tipolista *l, tipolista_movi *M);
+//Ele ira ler os dados salvos do movimento que estão armazenados em disco
 void ler_dados_movi(tipolista_movi *M);
+//Função que ira gravar os dados do meu movimento em um arquivo
 void gravar_movimento(tipolista_movi *M);
 #endif
