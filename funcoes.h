@@ -105,7 +105,7 @@ void cadastro_movi(tipolista *l, tipolista_movi *M);
 // Função que permite que mostre as funções em ordem alfabetica
 void ordem_alfabetica(tipolista *l);
 // função para ler uma data e verificar a validade
-char *lerData(int codigo_conta);
+char *lerData(int codigo_conta,int x, int y);
 // Função que ira criar a tela de tranferencia de contas
 void tela_transferencia_contas();
 // Função que ira criar a tela de consultar contas

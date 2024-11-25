@@ -127,20 +127,8 @@ int Trans_Conta(tipolista *l, tipolista_movi *M)
         return 0;
     }
 
-    do
-    {
-        gotoxy(44, 20);
-        getchar();
-        fflush(stdin);
-        fgets(conta.dt_movimento, 11, stdin);
-
-        if (!lerData(conta2.codigo_conta))
-        {
-            gotoxy(8, 24);
-            printf("Data invalida. Tente novamente.");
-            getch();
-        }
-    } while (!lerData(conta2.codigo_conta));
+    
+    strcpy(conta2.dt_movimento, lerData(conta2.codigo_conta,44,20));
 
     aux->conteudo.vl_saldo -= conta.vl_movimento;
     aux2->conteudo.vl_saldo += conta.vl_movimento;

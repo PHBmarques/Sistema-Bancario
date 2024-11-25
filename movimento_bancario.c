@@ -68,7 +68,7 @@ void cadastro_movi(tipolista *l, tipolista_movi *M)
             getch();
             // Cadastrar Movimentação Bancaria
             movi.codigo_conta = ContaBancaria.codigo_conta;
-            strcpy(movi.dt_movimento, lerData(movi.codigo_conta));
+            strcpy(movi.dt_movimento, lerData(movi.codigo_conta,33,16));
             strcpy(movi.to_movimento, ler_tipo_movimento());
             strcpy(movi.ds_favorecido, ler_movi_favorecido());
             movi.vl_movimento = ler_valor(ContaBancaria.vl_saldo, ContaBancaria.vl_limite);

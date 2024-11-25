@@ -25,7 +25,7 @@ int DataparaNumero(char *data)
     return (ano * 10000) + (mes * 100) + dia; // Retorna como número no formato AAAAMMDD
 }
 
-char *lerData(int codigo_conta)
+char *lerData(int codigo_conta,int x,int y)
 {
     static char data[11];             // Usando static para garantir que o buffer sobreviva fora do escopo da função
     static int ultima_conta = -1;     // Armazena o código da última conta registrada
@@ -44,7 +44,7 @@ char *lerData(int codigo_conta)
     {
         gotoxy(7, 24);
         printf("Data de Movimento (DD/MM/AAAA): ");
-        gotoxy(33, 16);
+        gotoxy(x, y);
         scanf("%s", data);
 
         // Verifica o formato e a validade da data
@@ -54,7 +54,7 @@ char *lerData(int codigo_conta)
             gotoxy(7, 24);
             printf("Formato invalido ou data invalida.");
             getch();
-            gotoxy(33, 16);
+            gotoxy(x, y);
             printf("               "); // Limpa a entrada anterior
             continue;                  // Continua o loop para solicitar uma nova data
         }
