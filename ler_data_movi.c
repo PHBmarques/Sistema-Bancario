@@ -43,7 +43,7 @@ char *lerData(int codigo_conta,int x,int y)
     while (1)
     {
         gotoxy(7, 24);
-        printf("Data de Movimento (DD/MM/AAAA):  ");
+        printf("Data de Movimento (DD/MM/AAAA):           ");
         gotoxy(x, y);
         scanf("%s", data);
 

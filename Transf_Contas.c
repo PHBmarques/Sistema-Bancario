@@ -96,13 +96,13 @@ void Trans_Conta(tipolista *l, tipolista_movi *M)
         {
             if (aux2 == NULL)
             {
-                gotoxy(8, 24);
+                gotoxy(7, 24);
                 printf("Conta nao encontrada ou inexistente");// Mensagem de erro
                 getch();
             }
             else if (aux2->conteudo.status == 0)
             {
-                gotoxy(8, 24);
+                gotoxy(7, 24);
                 printf("Conta inativa");// Mensagem se a conta estiver inativa
                 getch();
             }
