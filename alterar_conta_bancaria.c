@@ -85,7 +85,7 @@ void alterar_conta_bancaria(tipolista *l)
                     if (opc < 0 || opc > 8)
                     {
                         gotoxy(7, 24);
-                        printf("                               ");
+                        printf("                                                   ");
                         printf("Campo invalido");
                     }
                 } while (opc < 0 || opc > 8);
@@ -135,6 +135,8 @@ void alterar_conta_bancaria(tipolista *l)
                 }
             } while (opc != 0); // ira repritr até o usuario digitar 0
             // pergunta se o usuario quer ou não salvar os dados
+            gotoxy(7,24);
+            printf("                                                            ");
             gotoxy(7, 24);
             printf("Deseja salvar os dados (1-SIM/2-NAO)");
             // se sim ele ira salvar as alterações feitas

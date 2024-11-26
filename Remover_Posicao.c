@@ -133,7 +133,7 @@ void remover_posicao(tipolista *l, tipolista_movi *M)
             gotoxy(52, 19);
             printf("%.2lf", p->conteudo.vl_limite);
             gotoxy(52, 21);
-            printf("%s", p->conteudo.status);
+            printf("%d", p->conteudo.status);
             gotoxy(7, 24);
             // Confirmação do usuário para remoção.
             gotoxy(7, 24);

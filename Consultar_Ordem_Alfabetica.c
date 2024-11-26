@@ -27,7 +27,7 @@ void ordem_alfabetica(tipolista *l)
         p = l->primeiro; // apontar para o primeiro codigo da lista
         while (p == NULL && p->proximo != NULL)
         {
-            if (strcmp(p->conteudo.banco, p->proximo->conteudo.banco) >= 0)
+            if (strcmp(p->conteudo.banco, p->proximo->conteudo.banco) > 0)
             {
                 // troca o conteudo entre p e p de proximo
                 x = p->proximo;
